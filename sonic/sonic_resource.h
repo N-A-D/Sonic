@@ -28,6 +28,7 @@ namespace sonic {
 
 		// Responsible for the management of a variety of resource types
 		class resouce_manager {
+		public:
 			using resource_table = std::unordered_map<std::string, std::shared_ptr<basic_resource_type>>;
 			using resource_database = std::unordered_map<std::size_t, resource_table>;
 
