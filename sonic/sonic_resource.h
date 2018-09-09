@@ -51,7 +51,7 @@ namespace sonic {
 			// Removes all managed Resource objects
 			template <class Resource>
 			void clear() noexcept {
-				assert(manages<Resource>());
+				assert(manages<Resource>() && "This manager does not manage resources of type 'Resource'");
 				database.at(Resource::resource_id()).clear();
 			}
 
@@ -78,7 +78,7 @@ namespace sonic {
 			template <class Resource>
 			Resource& get(std::string resource_name) noexcept {
 				resource_name = normalize_resource_name(resource_name);
-				assert(has_aux<Resource>(resource_name));
+				assert(has_aux<Resource>(resource_name) && "This manager does not have a Resource object bound to resource_name.");
 				return *(std::static_pointer_cast<Resource>(database.at(Resource::resource_id()).at(resource_name)));
 			}
 
@@ -86,7 +86,7 @@ namespace sonic {
 			template <class Resource>
 			void remove(std::string resource_name) noexcept {
 				resource_name = normalize_resource_name(resource_name);
-				assert(has_aux<Resource>(resource_name));
+				assert(has_aux<Resource>(resource_name) && "This manager does not have a Resource object bound to resource_name.");
 				database.at(Resource::resource_id()).erase(resource_name);
 			}
 
@@ -101,7 +101,7 @@ namespace sonic {
 			// Checks if this manager manages a Resource object named resource_name without normalization
 			template <class Resource>
 			bool has_aux(std::string resource_name) const noexcept {
-				assert(manages<Resource>());
+				assert(manages<Resource>() && "This manager does not manage resources of type 'Resource'");
 				auto table = database.at(Resource::resource_id());
 				return table.find(resource_name) != table.end();
 			}
