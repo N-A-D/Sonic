@@ -74,14 +74,12 @@ namespace sonic {
 			}
 
 			// Applies a function f onto any entity within a proximity circle
-			void each_neighbor(const math::vec2D& position, double proximity_radius, std::function<void(Entity e)>&& function) noexcept {
+			void each_neighbor(const math::vec2D& position, double proximity_radius, std::function<void(Entity e)>&& f) noexcept {
 				each_neighbor_if(position, proximity_radius, function, [](Entity e) { return true; });
 			}
 
 			// Applies a function f onto entities within the proximity circle and satisfy the filter functor
-			void each_neighbor_if(const math::vec2D& position, double proximity_radius, std::function<void(Entity e)>&& function,
-				std::function<void(Entity e)>&& filter) noexcept
-			{
+			void each_neighbor_if(const math::vec2D& position, double proximity_radius, std::function<void(Entity e)>&& f, std::function<void(Entity e)>&& filter) noexcept {
 				util::rectangle prox_box(static_cast<int>(pos.x - proximity_radius / 2.0),
 					static_cast<int>(pos.y - proximity_radius / 2.0),
 					proximity_radius, proximity_radius);
