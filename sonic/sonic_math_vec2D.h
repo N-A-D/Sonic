@@ -63,8 +63,6 @@ namespace sonic {
 		vec2D operator*(double scale, const vec2D& rhs);
 		vec2D operator/(const vec2D& lhs, double scale);
 		vec2D operator/(double scale, const vec2D& rhs);
-		bool operator<(const vec2D& lhs, const vec2D& rhs);
-		bool operator>(const vec2D& lhs, const vec2D& rhs);
 		bool operator==(const vec2D& lhs, const vec2D& rhs);
 		bool operator!=(const vec2D& lhs, const vec2D& rhs);
 

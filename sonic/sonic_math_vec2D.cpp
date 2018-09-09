@@ -152,16 +152,6 @@ vec2D sonic::math::operator/(double scale, const vec2D & rhs)
 	return rhs * scale;
 }
 
-bool sonic::math::operator<(const vec2D & lhs, const vec2D & rhs)
-{
-	return lhs.length_sq() < rhs.length_sq();
-}
-
-bool sonic::math::operator>(const vec2D & lhs, const vec2D & rhs)
-{
-	return rhs < lhs;
-}
-
 bool sonic::math::operator==(const vec2D & lhs, const vec2D & rhs)
 {
 	return approx_equal(lhs.x, rhs.x) && approx_equal(lhs.y, rhs.y);
