@@ -4,7 +4,7 @@ struct SDL_Point;
 
 namespace sonic {
 	namespace math {
-
+		// 2D space vector
 		class vec2D {
 		public:
 
