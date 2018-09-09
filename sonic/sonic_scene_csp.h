@@ -31,7 +31,7 @@ namespace sonic {
 
 				for (int x = 0; x < num_cells_x; x++) {
 					for (int y = 0; y < num_cells_y; y++) {
-						grid.push_back(Cell(x* cell_width, y * cell_height, cell_width, cell_height));
+						grid.push_back(cell(x* cell_width, y * cell_height, cell_width, cell_height));
 					}
 				}
 
@@ -40,7 +40,7 @@ namespace sonic {
 			// Returns the number of entities contained by this cell space grid
 			std::size_t entities() const noexcept
 			{
-				return std::accumulate(grid.begin(), grid.end(), size_t(0), [](size_t n, Cell cell) { return n + cell.members.size(); });
+				return std::accumulate(grid.begin(), grid.end(), size_t(0), [](size_t n, cell cell) { return n + cell.members.size(); });
 			}
 
 			// Returns the appropriate cell space for the given position
