@@ -16,10 +16,10 @@ namespace sonic {
 		class cell_space_partition {
 		public:
 
-			struct cell {
-				cell(int x, int y, int w, int h)
-					: boundary(x, y, w, h) {}
-				util::rectangle boundary;
+			// The cell type
+			struct cell_t {
+				cell_t(int x, int y, int w, int h) : boundary(x, y, w, h) {}
+				sonic::util::rectangle boundary;
 				std::list<Entity> members;
 			};
 
@@ -31,22 +31,22 @@ namespace sonic {
 
 				for (int x = 0; x < num_cells_x; x++) {
 					for (int y = 0; y < num_cells_y; y++) {
-						grid.push_back(cell(x* cell_width, y * cell_height, cell_width, cell_height));
+						grid.push_back(cell_t(x* cell_width, y * cell_height, cell_width, cell_height));
 					}
 				}
 
 			}
 
 			// Returns the number of entities contained by this cell space grid
-			std::size_t entities() const noexcept
-			{
-				return std::accumulate(grid.begin(), grid.end(), size_t(0), [](size_t n, cell cell) { return n + cell.members.size(); });
+			std::size_t entities() const noexcept {
+				return std::accumulate(grid.begin(), grid.end(), std::size_t(0), [](std::size_t n, cell_t cell) { return n + cell.members.size(); });
 			}
-
+			
 			// Returns the appropriate cell space for the given position
 			std::size_t cell_for(const math::vec2D& pos) const noexcept {
 				// formula -> column_length * column + row
-				std::size_t idx = num_cells_y * static_cast<std::size_t>(num_cells_x * pos.x / world_width) + static_cast<std::size_t>(num_cells_y * pos.y / world_height);
+				std::size_t idx = num_cells_y * static_cast<std::size_t>(num_cells_x * pos.x / world_width) + 
+					              static_cast<std::size_t>(num_cells_y * pos.y / world_height);
 				if (idx >= grid.size()) idx = grid.size() - 1;
 				return idx;
 			}
@@ -99,7 +99,7 @@ namespace sonic {
 		private:
 
 			// The cell space grid
-			std::vector<cell> grid;
+			std::vector<cell_t> grid;
 
 			// The dimensions of the world in 2D
 			int world_width, world_height;
