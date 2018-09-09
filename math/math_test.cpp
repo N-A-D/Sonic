@@ -38,16 +38,16 @@ namespace math
 		TEST_METHOD(angle_to) {
 			sonic::math::vec2D v1(1, 0);
 			sonic::math::vec2D v2(0, 1);
-			Assert::IsTrue(sonic::math::is_equal(v1.angle_to(v2), 90.0));
+			Assert::IsTrue(sonic::math::approx_equal(v1.angle_to(v2), 90.0));
 		}
 
 		TEST_METHOD(rotate) {
 			sonic::math::vec2D a(1, 0);
 			a = a.rotate(90);
-			Assert::IsTrue(sonic::math::is_equal(a.x, 0.0) && sonic::math::is_equal(a.y, 1.0));
+			Assert::IsTrue(sonic::math::approx_equal(a.x, 0.0) && sonic::math::approx_equal(a.y, 1.0));
 			sonic::math::vec2D b(0, 1);
 			b = b.rotate(-90);
-			Assert::IsTrue(sonic::math::is_equal(b.x, 1.0) && sonic::math::is_equal(b.y, 0.0));
+			Assert::IsTrue(sonic::math::approx_equal(b.x, 1.0) && sonic::math::approx_equal(b.y, 0.0));
 		}
 
 		TEST_METHOD(norm) {
@@ -86,18 +86,18 @@ namespace math
 	TEST_CLASS(funtions) {
 	public:
 
-		TEST_METHOD(is_equal) {
-			Assert::IsTrue(sonic::math::is_equal(0.0000000000000000000000555, 0.00000000000000000000000000021));
-			Assert::IsFalse(sonic::math::is_equal(0.0123, 0.124));
+		TEST_METHOD(approx_equal) {
+			Assert::IsTrue(sonic::math::approx_equal(0.0000000000000000000000555, 0.00000000000000000000000000021));
+			Assert::IsFalse(sonic::math::approx_equal(0.0123, 0.124));
 		}
 		TEST_METHOD(DegToRad) {
 			// Why you no work M_PI_2?
-			Assert::IsTrue(sonic::math::is_equal(1.57079632679489661923, sonic::math::deg_to_rad(90.0)));
+			Assert::IsTrue(sonic::math::approx_equal(1.57079632679489661923, sonic::math::deg_to_rad(90.0)));
 		}
 
 		TEST_METHOD(RadToDeg) {
 			// M_PI_2!!!!!!!
-			Assert::IsTrue(sonic::math::is_equal(90.0, sonic::math::rad_to_deg(1.57079632679489661923)));
+			Assert::IsTrue(sonic::math::approx_equal(90.0, sonic::math::rad_to_deg(1.57079632679489661923)));
 		}
 
 		TEST_METHOD(RandINT) {
