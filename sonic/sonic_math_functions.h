@@ -9,9 +9,8 @@
 namespace sonic {
 	namespace math {
 
-		// Returns true if two real numbers are equal.
-		// That is, if the absolute difference between
-		// the two numbers is less than 1E-12
+		// Returns true if two real numbers are approxmiately equal
+		// That is, if the absolute difference between the two numbers is less than EPSILON
 		bool is_equal(double a, double b);
 
 		// Converts from degrees to radians

@@ -4,7 +4,7 @@
 
 bool sonic::math::is_equal(double a, double b)
 {
-	return fabs(a - b) < 1e-12;
+	return fabs(a - b) < EPSILON;
 }
 
 double sonic::math::deg_to_rad(double deg)
