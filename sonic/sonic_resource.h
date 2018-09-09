@@ -6,7 +6,6 @@
 #include <assert.h>
 #include <algorithm>
 #include <unordered_map>
-#include "sonic_resource.h"
 
 namespace sonic {
 	namespace resource {
