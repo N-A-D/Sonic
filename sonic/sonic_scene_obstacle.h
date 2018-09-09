@@ -8,7 +8,7 @@ namespace sonic {
 		
 		// The obstacle class
 		// Defined as a position and a radius
-		class obstacle : public util::instance_counter<obstacle> {
+		class obstacle : public sonic::util::instance_counter<obstacle> {
 		public:
 			obstacle(double radius, math::vec2D pos);
 			// Returns the radius of this obstacle

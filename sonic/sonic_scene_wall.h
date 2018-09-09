@@ -6,7 +6,7 @@ namespace sonic {
 		
 		// The wall class
 		// Defined by the two vectors start and end
-		class wall : public util::instance_counter<wall> {
+		class wall : public sonic::util::instance_counter<wall> {
 		public:
 			wall(const math::vec2D& start, const math::vec2D& end);
 			// Returns the start point of the wall
