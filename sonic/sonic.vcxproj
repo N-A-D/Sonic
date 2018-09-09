@@ -26,26 +26,26 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -69,7 +69,22 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\rapidxml-1.13;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)3rdParty\SDL2\lib\W64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\rapidxml-1.13;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)3rdParty\SDL2\lib\W32;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\rapidxml-1.13;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)3rdParty\SDL2\lib\W32;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\rapidxml-1.13;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)3rdParty\SDL2\lib\W64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -77,6 +92,10 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>NotSet</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -85,6 +104,9 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -98,6 +120,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -112,9 +135,51 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="sonic.h" />
+    <ClInclude Include="sonic_display_window.h" />
+    <ClInclude Include="sonic_display_renderer.h" />
+    <ClInclude Include="sonic_resource.h" />
+    <ClInclude Include="sonic_resource_font.h" />
+    <ClInclude Include="sonic_resource_sound.h" />
+    <ClInclude Include="sonic_resource_spritesheet.h" />
+    <ClInclude Include="sonic_resource_texture.h" />
+    <ClInclude Include="sonic_util_clock.h" />
+    <ClInclude Include="sonic_util_fps_counter.h" />
+    <ClInclude Include="sonic_util_frame_timer.h" />
+    <ClInclude Include="sonic_input.h" />
+    <ClInclude Include="sonic_math_constants.h" />
+    <ClInclude Include="sonic_math_functions.h" />
+    <ClInclude Include="sonic_math_vec2D.h" />
+    <ClInclude Include="sonic_scene_csp.h" />
+    <ClInclude Include="sonic_scene_wall.h" />
+    <ClInclude Include="sonic_util_instance_counter.h" />
+    <ClInclude Include="sonic_util_rectangle.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sonic.cpp" />
+    <ClCompile Include="sonic_display_renderer.cpp" />
+    <ClCompile Include="sonic_display_window.cpp" />
+    <ClCompile Include="sonic_input.cpp" />
+    <ClCompile Include="sonic_math_functions.cpp" />
+    <ClCompile Include="sonic_math_vec2D.cpp" />
+    <ClCompile Include="sonic_resource.cpp" />
+    <ClCompile Include="sonic_resource_font.cpp" />
+    <ClCompile Include="sonic_resource_sound.cpp" />
+    <ClCompile Include="sonic_resource_spritesheet.cpp" />
+    <ClCompile Include="sonic_resource_texture.cpp" />
+    <ClCompile Include="sonic_scene_obstacle.cpp" />
+    <ClCompile Include="sonic_scene_wall.cpp" />
+    <ClCompile Include="sonic_util_clock.cpp" />
+    <ClCompile Include="sonic_util_fps_counter.cpp" />
+    <ClCompile Include="sonic_util_frame_timer.cpp" />
+    <ClCompile Include="sonic_util_rectangle.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sonic_scene_obstacle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
