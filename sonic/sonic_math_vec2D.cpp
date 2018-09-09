@@ -51,10 +51,9 @@ vec2D sonic::math::vec2D::rotate(double angle) const
 vec2D sonic::math::vec2D::norm() const
 {
 	double magnitude = this->length();
-	assert(magnitude == 0 && "Cannot normalize a vector of length zero!");
+	assert(magnitude != 0 && "Cannot normalize a vector of length zero!");
 	return vec2D(x / magnitude, y / magnitude);
 }
-
 
 void sonic::math::vec2D::scale(double size)
 {
@@ -108,7 +107,7 @@ vec2D & sonic::math::vec2D::operator*=(double scale)
 
 vec2D & sonic::math::vec2D::operator/=(double scale)
 {
-	assert(scale == 0 && "Cannot divide a vector by zero!");
+	assert(scale != 0 && "Cannot divide a vector by zero!");
 	x /= scale;
 	y /= scale;
 	return *this;
