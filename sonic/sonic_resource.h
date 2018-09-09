@@ -12,14 +12,14 @@ namespace sonic {
 	namespace resource {
 
 		// Base resource class from which all resources derive
-		class basic_resource {
+		class basic_resource_type {
 		protected:
 			static std::size_t resource_type_id;
 		};
 
 		// Any type that is a resource should subclass this class
 		template <class Derived>
-		class resource_type : public basic_resource {
+		class resource_type : public basic_resource_type {
 		public:
 			static std::size_t resource_id() noexcept {
 				static std::size_t id = resource_type_id++;
@@ -29,7 +29,7 @@ namespace sonic {
 
 		// Responsible for the management of a variety of resource types
 		class resouce_manager {
-			using resource_table = std::unordered_map<std::string, std::shared_ptr<basic_resource>>;
+			using resource_table = std::unordered_map<std::string, std::shared_ptr<basic_resource_type>>;
 			using resource_database = std::unordered_map<std::size_t, resource_table>;
 
 			resouce_manager() {}
