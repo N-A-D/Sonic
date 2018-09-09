@@ -1,5 +1,4 @@
-#include <SDL.h>
-#include <stdexcept>
+#include <assert.h>
 #include "sonic_math_vec2D.h"
 #include "sonic_math_functions.h"
 #include "sonic_math_constants.h"
@@ -11,10 +10,6 @@ sonic::math::vec2D::vec2D() : x(0), y(0)
 }
 
 sonic::math::vec2D::vec2D(double x, double y) : x(x), y(y)
-{
-}
-
-sonic::math::vec2D::vec2D(const SDL_Point & point) : x(point.x), y(point.y)
 {
 }
 
@@ -40,14 +35,9 @@ double sonic::math::vec2D::dist_to_sq(const vec2D & other) const
 
 double sonic::math::vec2D::angle_to(const vec2D & other) const
 {
-	double magnitude = this->length();
-	double other_magnitude = other.length();
-
-	if (magnitude == 0) throw std::logic_error("Calling vector's magnitude is zero!");
-	if (other_magnitude == 0) throw std::logic_error("Argument vector's magnitude is zero!");
-
-	double dot_product = this->dot(other);
-	return rad_to_deg(acos((dot_product / (magnitude * other_magnitude))));
+	auto v = this->norm();
+	auto w = other.norm();
+	return rad_to_deg(acos(v.dot(w)));
 }
 
 vec2D sonic::math::vec2D::rotate(double angle) const
@@ -55,14 +45,13 @@ vec2D sonic::math::vec2D::rotate(double angle) const
 	double rads = deg_to_rad(angle);
 	double t_x = x * cos(rads) - y * sin(rads);
 	double t_y = x * sin(rads) + y * cos(rads);
-
 	return vec2D(t_x, t_y);
 }
 
 vec2D sonic::math::vec2D::norm() const
 {
 	double magnitude = this->length();
-	if (magnitude == 0) throw std::logic_error("Cannot normalize a vector of length zero!");
+	assert(magnitude == 0 && "Cannot normalize a vector of length zero!");
 	return vec2D(x / magnitude, y / magnitude);
 }
 
@@ -119,15 +108,10 @@ vec2D & sonic::math::vec2D::operator*=(double scale)
 
 vec2D & sonic::math::vec2D::operator/=(double scale)
 {
-	if (scale == 0) throw std::logic_error("Cannot divide a vector by zero!");
+	assert(scale == 0 && "Cannot divide a vector by zero!");
 	x /= scale;
 	y /= scale;
 	return *this;
-}
-
-sonic::math::vec2D::operator SDL_Point()
-{
-	return { static_cast<int>(x), static_cast<int>(y) };
 }
 
 vec2D sonic::math::operator+(const vec2D & lhs, const vec2D & rhs)
@@ -180,7 +164,7 @@ bool sonic::math::operator>(const vec2D & lhs, const vec2D & rhs)
 
 bool sonic::math::operator==(const vec2D & lhs, const vec2D & rhs)
 {
-	return !(rhs < lhs) && !(lhs < rhs);
+	return approx_equal(lhs.x, rhs.x) && approx_equal(lhs.y, rhs.y);
 }
 
 bool sonic::math::operator!=(const vec2D & lhs, const vec2D & rhs)

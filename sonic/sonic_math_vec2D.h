@@ -1,7 +1,5 @@
 #pragma once
 
-struct SDL_Point;
-
 namespace sonic {
 	namespace math {
 		// 2D space vector
@@ -11,7 +9,6 @@ namespace sonic {
 			// Constructors
 			vec2D();
 			vec2D(double x, double y);
-			vec2D(const SDL_Point& point);
 
 			// Returns the length of the vector
 			double length() const;
@@ -54,9 +51,6 @@ namespace sonic {
 			vec2D& operator-=(const vec2D& other);
 			vec2D& operator*=(double scale);
 			vec2D& operator/=(double scale);
-
-			// Converts to SDL_Point
-			operator SDL_Point();
 
 			double x, y;
 
