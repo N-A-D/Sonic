@@ -2,7 +2,7 @@
 #include "sonic_math_constants.h"
 #include <random>
 
-bool sonic::math::is_equal(double a, double b)
+bool sonic::math::approx_equal(double a, double b)
 {
 	return fabs(a - b) < EPSILON;
 }

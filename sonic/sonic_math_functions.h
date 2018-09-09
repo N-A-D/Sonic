@@ -11,7 +11,7 @@ namespace sonic {
 
 		// Returns true if two real numbers are approxmiately equal
 		// That is, if the absolute difference between the two numbers is less than EPSILON
-		bool is_equal(double a, double b);
+		bool approx_equal(double a, double b);
 
 		// Converts from degrees to radians
 		double deg_to_rad(double deg);
