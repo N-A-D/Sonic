@@ -35,7 +35,7 @@ namespace sonic {
 			vec2D norm() const;
 
 			// Truncates the length of the vector to size 
-			void trunc(double size);
+			void scale(double size);
 
 			// Returns the dot product of this with other
 			double dot(const vec2D& other) const;

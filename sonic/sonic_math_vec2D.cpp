@@ -67,7 +67,7 @@ vec2D sonic::math::vec2D::norm() const
 }
 
 
-void sonic::math::vec2D::trunc(double size)
+void sonic::math::vec2D::scale(double size)
 {
 	vec2D temp = this->norm();
 	temp.x *= size;
