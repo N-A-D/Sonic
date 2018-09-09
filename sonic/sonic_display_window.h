@@ -13,12 +13,12 @@ namespace sonic {
 		class window final {
 		public:
 			// Creates a new Window
-			window(const std::string& title = "",			                     // Window title
-				int w = 640, int h = 480,                                 // Window dimensions
+			window(const std::string& title = "",			         // Window title
+				int w = 640, int h = 480,                                // Window dimensions
 				std::uint32_t window_flags = SDL_WINDOW_SHOWN,           // Window creation flags
 				std::uint32_t renderer_flags = SDL_RENDERER_ACCELERATED, // Renderer creation flags
-				int x = SDL_WINDOWPOS_UNDEFINED,                          // Window x position
-				int y = SDL_WINDOWPOS_UNDEFINED				             // Windiow y position
+				int x = SDL_WINDOWPOS_UNDEFINED,                         // Window x position
+				int y = SDL_WINDOWPOS_UNDEFINED				 // Windiow y position
 			);
 
 			// Returns the rendering context for this window
