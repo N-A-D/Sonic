@@ -60,12 +60,9 @@ vec2D sonic::math::vec2D::norm() const noexcept
 	return vec2D(x / magnitude, y / magnitude);
 }
 
-vec2D sonic::math::vec2D::trunc(double size) noexcept
+vec2D sonic::math::vec2D::trunc(double size) const noexcept
 {
-	vec2D temp = this->norm();
-	temp.x *= size;
-	temp.y *= size;
-	return temp;
+	return this->norm() * size;
 }
 
 vec2D sonic::math::vec2D::perp() const noexcept

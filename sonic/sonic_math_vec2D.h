@@ -35,7 +35,7 @@ namespace sonic {
 			vec2D norm() const noexcept;
 
 			// Returns a copy of the the caller truncated to size
-			vec2D trunc(double size) noexcept;
+			vec2D trunc(double size) const noexcept;
 
 			// Returns a vector that is perpendicular to the calling vector
 			vec2D perp() const noexcept;
