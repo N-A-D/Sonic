@@ -10,32 +10,32 @@ namespace sonic {
 			vec2D();
 			vec2D(double x, double y);
 
-			// Returns the length of the vector
+			// Returns the length
 			double length() const noexcept;
 
-			// Returns the length of the vector squared
+			// Returns the length squared
 			double length_sq() const noexcept;
 
-			// Returns the distance to another vector
+			// Returns the distance to other
 			double dist_to(const vec2D& other) const noexcept;
 
-			// Returns the distance to another vector squared
+			// Returns the distance to other squared
 			double dist_to_sq(const vec2D& other) const noexcept;
 
 			// Returns the angle to another vector in degrees
 			double angle_to(const vec2D& other) const noexcept;
 
-			// Returns a copy of the calling vector rotated by angle
+			// Returns the dot product between the caller and other
+			double dot(const vec2D& other) const noexcept;
+
+			// Returns a copy of the caller rotated by angle (degrees)
 			vec2D rotate(double angle) const noexcept;
 
-			// Returns a copy of the normalized calling vector 
+			// Returns a copy of the caller normalized
 			vec2D norm() const noexcept;
 
-			// Truncates the length of the vector to size 
-			void scale(double size) noexcept;
-
-			// Returns the dot product of this with other
-			double dot(const vec2D& other) const noexcept;
+			// Returns a copy of the the caller truncated to size
+			vec2D trunc(double size) noexcept;
 
 			// Returns a vector that is perpendicular to the calling vector
 			vec2D perp() const noexcept;

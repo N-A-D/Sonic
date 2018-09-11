@@ -40,6 +40,11 @@ double sonic::math::vec2D::angle_to(const vec2D & other) const noexcept
 	return rad_to_deg(acos(v.dot(w)));
 }
 
+double sonic::math::vec2D::dot(const vec2D & other) const noexcept
+{
+	return x * other.x + y * other.y;
+}
+
 vec2D sonic::math::vec2D::rotate(double angle) const noexcept
 {
 	double rads = deg_to_rad(angle);
@@ -55,17 +60,12 @@ vec2D sonic::math::vec2D::norm() const noexcept
 	return vec2D(x / magnitude, y / magnitude);
 }
 
-void sonic::math::vec2D::scale(double size) noexcept
+vec2D sonic::math::vec2D::trunc(double size) noexcept
 {
 	vec2D temp = this->norm();
 	temp.x *= size;
 	temp.y *= size;
-	*this = temp;
-}
-
-double sonic::math::vec2D::dot(const vec2D & other) const noexcept
-{
-	return x * other.x + y * other.y;
+	return temp;
 }
 
 vec2D sonic::math::vec2D::perp() const noexcept
