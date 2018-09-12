@@ -38,7 +38,7 @@ namespace sonic {
 
 			// Sets the color used for drawing ops 
 			// example:
-			// renderer.draw_color({ 255, 0, 0, 128 });
+			// renderer.set_draw_color({ 255, 0, 0, 128 });
 			void set_draw_color(const SDL_Color& color) noexcept;
 
 			// Gets the draw color of this display::renderer
