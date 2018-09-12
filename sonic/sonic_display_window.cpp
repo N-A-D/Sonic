@@ -7,28 +7,21 @@ sonic::display::window::window(const std::string& title, int w, int h, std::uint
 		throw std::runtime_error(std::string("Could not create window -- ") + SDL_GetError());
 
 	// Create the window's renderer
-	w_id = SDL_GetWindowID(m_window.get());
-
-	SDL_Renderer *renderer_ptr = SDL_CreateRenderer(m_window.get(), -1, renderer_flags);
-
-	if (!renderer_ptr)
-		throw std::runtime_error(std::string("Could not create renderer -- ") + SDL_GetError());
-
-	context = sonic::display::renderer(renderer_ptr, w_id);
+	create_display_renderer(renderer_flags);
 }
 
-sonic::display::renderer sonic::display::window::renderer()
+sonic::display::renderer sonic::display::window::renderer() const noexcept
 {
 	return context;
 }
 
-void sonic::display::window::resize(int width, int height)
+void sonic::display::window::resize(int width, int height) noexcept
 {
 	SDL_SetWindowSize(m_window.get(), width, height);
 	refresh();
 }
 
-void sonic::display::window::toggle_fullscreen()
+void sonic::display::window::toggle_fullscreen() noexcept
 {
 	if (fullscreen) {
 		fullscreen = false;
@@ -44,7 +37,7 @@ void sonic::display::window::toggle_fullscreen()
 	}
 }
 
-void sonic::display::window::toggle_borders()
+void sonic::display::window::toggle_borders() noexcept
 {
 	if (borderless) {
 		borderless = false;
@@ -56,64 +49,76 @@ void sonic::display::window::toggle_borders()
 	}
 }
 
-void sonic::display::window::move_to(int x, int y)
+void sonic::display::window::move_to(int x, int y) noexcept
 {
 	SDL_SetWindowPosition(m_window.get(), x, y);
 	refresh();
 }
 
-void sonic::display::window::restore()
+void sonic::display::window::restore() noexcept
 {
 	SDL_RestoreWindow(m_window.get());
 	refresh();
 	SDL_GetWindowSize(m_window.get(), &w, &h);
 }
 
-void sonic::display::window::maximize()
+void sonic::display::window::maximize() noexcept
 {
 	SDL_MaximizeWindow(m_window.get());
 	refresh();
 	SDL_GetWindowSize(m_window.get(), &w, &h);
 }
 
-void sonic::display::window::minimize()
+void sonic::display::window::minimize() noexcept
 {
 	SDL_MinimizeWindow(m_window.get());
 }
 
-void sonic::display::window::set_title(std::string title)
+void sonic::display::window::title(std::string title) noexcept
 {
 	SDL_SetWindowTitle(m_window.get(), title.c_str());
 }
 
-std::string sonic::display::window::title() const
+std::string sonic::display::window::title() const noexcept
 {
 	return std::string(SDL_GetWindowTitle(m_window.get()));
 }
 
-void sonic::display::window::set_brightness(int brightness)
+void sonic::display::window::brightness(int brightness)  noexcept
 {
 	SDL_SetWindowBrightness(m_window.get(), static_cast<float>(brightness));
 }
 
-int sonic::display::window::brightness() const
+int sonic::display::window::brightness() const noexcept
 {
 	return static_cast<int>(SDL_GetWindowBrightness(m_window.get()));
 }
 
-std::uint32_t sonic::display::window::window_id() const
+std::uint32_t sonic::display::window::window_id() const noexcept
 {
 	return w_id;
 }
 
-int sonic::display::window::width() const
+int sonic::display::window::width() const noexcept
 {
 	return w;
 }
 
-int sonic::display::window::height() const
+int sonic::display::window::height() const noexcept
 {
 	return h;
+}
+
+void sonic::display::window::create_display_renderer(std::uint32_t renderer_flags)
+{
+	w_id = SDL_GetWindowID(m_window.get());
+
+	SDL_Renderer *renderer_ptr = SDL_CreateRenderer(m_window.get(), -1, renderer_flags);
+
+	if (!renderer_ptr)
+		throw std::runtime_error(std::string("Could not create renderer -- ") + SDL_GetError());
+
+	context = sonic::display::renderer(renderer_ptr, w_id);
 }
 
 void sonic::display::window::refresh() noexcept

@@ -22,53 +22,58 @@ namespace sonic {
 			);
 
 			// Returns the rendering context for this window
-			sonic::display::renderer renderer();
+			sonic::display::renderer renderer() const noexcept;
 
 			// Sets the dimensions of the Window
-			void resize(int width, int height);
+			void resize(int width, int height) noexcept;
 
 			// Sets the Window to fullscreen mode
-			void toggle_fullscreen();
+			void toggle_fullscreen() noexcept;
 
 			// Removes window borders around the window screen
-			void toggle_borders();
+			void toggle_borders() noexcept;
 
 			// Sets the position of the window
-			void move_to(int x, int y);
+			void move_to(int x, int y) noexcept;
 
 			// Restores the size and position of a minimized or maximized window
-			void restore();
+			void restore() noexcept;
 
 			// Maximizes the window
-			void maximize();
+			void maximize() noexcept;
 
 			// Minimizes the window
-			void minimize();
+			void minimize() noexcept;
 
 			// Sets the title of the window
-			void set_title(std::string title);
+			void title(std::string title) noexcept;
 
 			// Gets the title of the window
-			std::string title() const;
+			std::string title() const noexcept;
 
 			// Sets the brightness of the Window
-			void set_brightness(int brightness);
+			void brightness(int brightness) noexcept;
 
 			// Gets the brightness of the Window
-			int brightness() const;
+			int brightness() const noexcept;
 
 			// Returns the Window's id
-			std::uint32_t window_id() const;
+			std::uint32_t window_id() const noexcept;
 
 			// Returns the width of the screen
-			int width() const;
+			int width() const noexcept;
 
 			// Returns the height of the screen
-			int height() const;
+			int height() const noexcept;
 
 		private:
+			// Creates the display::renderer for this display::window
+			void create_display_renderer(std::uint32_t renderer_flags);
+			
+			// Refreshes the screen after significant changes
 			void refresh() noexcept;
 
+			// Custom deleter for SDL_Window* 
 			struct window_deleter {
 				void operator()(SDL_Window* w) { SDL_DestroyWindow(w); }
 			};
