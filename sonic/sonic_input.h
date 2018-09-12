@@ -6,6 +6,7 @@
 
 namespace sonic {
 
+	// Defines the keys of the keyboard
 	enum class keyboard {
 		key_0 = SDL_SCANCODE_0,
 		key_1 = SDL_SCANCODE_1,
@@ -228,6 +229,7 @@ namespace sonic {
 		key_z = SDL_SCANCODE_Z,
 	};
 
+	// Defines the main buttons of the mouse
 	enum class mouse_button {
 		left = SDL_BUTTON_LEFT,
 		mid = SDL_BUTTON_MIDDLE,
@@ -241,46 +243,46 @@ namespace sonic {
 		input_manager();
 
 		// Processes input events from the SDL event queue
-		void process_input();
+		void process_input() noexcept;
 
 		// Disables input processing
-		void disable();
+		void disable() noexcept;
 
 		// Enables input processing
-		void enable();
+		void enable() noexcept;
 
 		// Checks if input processing is enabled
-		bool is_processing_input();
+		bool is_processing_input() const noexcept;
 
 		// Checks if a quit event was encountered
-		bool is_quit_requested();
+		bool is_quit_requested() const noexcept;
 
 		// Checks if btn is currently being pressed
-		bool is_mouse_pressed(mouse_button btn);
+		bool is_mouse_pressed(mouse_button btn) const noexcept;
 
 		// Checks if btn was pressed this frame
-		bool is_mouse_down(mouse_button btn);
+		bool is_mouse_down(mouse_button btn) const noexcept;
 
 		// Checks if btn was released this frame
-		bool is_mouse_up(mouse_button btn);
+		bool is_mouse_up(mouse_button btn) const noexcept;
 
-		// Returns the amount of vertical mouse wheel motion
-		std::int32_t get_vertical_mouse_wheel_motion();
+		// Returns the amount of vertical mouse wheel motion in the last frame
+		std::int32_t vertical_mouse_wheel_motion() const noexcept;
 
-		// Returns the amount of horizontal mouse wheel motion
-		std::int32_t get_horizontal_mouse_wheel_motion();
+		// Returns the amount of horizontal mouse wheel motion in the last frame
+		std::int32_t horizontal_mouse_wheel_motion() const noexcept;
 
 		// Returns the current position of the mouse NOTE: The position is found in each fn call.
-		SDL_Point get_mouse_position(int cameraX = 0, int cameraY = 0);
+		SDL_Point mouse_position(int cameraX = 0, int cameraY = 0) const noexcept;
 
 		// Checks if key is currently being pressed
-		bool is_key_pressed(keyboard key);
+		bool is_key_pressed(keyboard key) const noexcept;
 
 		// Checks if key was pressed this frame
-		bool is_key_down(keyboard key);
+		bool is_key_down(keyboard key) const noexcept;
 
 		// Checks if key was released this frame
-		bool is_key_up(keyboard key);
+		bool is_key_up(keyboard key) const noexcept;
 
 	private:
 		// Maximum number of mouse buttons supported

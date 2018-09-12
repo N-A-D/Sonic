@@ -9,7 +9,7 @@ sonic::input_manager::input_manager()
 	mouse_up = std::vector<bool>(MOUSE_BUTTON_MAX, false);
 }
 
-void sonic::input_manager::process_input()
+void sonic::input_manager::process_input() noexcept
 {
 	using sz = std::vector<bool>::size_type;
 
@@ -63,27 +63,27 @@ void sonic::input_manager::process_input()
 	}
 }
 
-void sonic::input_manager::disable()
+void sonic::input_manager::disable() noexcept
 {
 	enabled = false;
 }
 
-void sonic::input_manager::enable()
+void sonic::input_manager::enable() noexcept
 {
 	enabled = true;
 }
 
-bool sonic::input_manager::is_processing_input()
+bool sonic::input_manager::is_processing_input() const noexcept
 {
 	return enabled;
 }
 
-bool sonic::input_manager::is_quit_requested()
+bool sonic::input_manager::is_quit_requested() const noexcept
 {
 	return quit;
 }
 
-bool sonic::input_manager::is_mouse_pressed(mouse_button btn)
+bool sonic::input_manager::is_mouse_pressed(mouse_button btn) const noexcept
 {
 	if (!enabled) {
 		return false;
@@ -102,44 +102,44 @@ bool sonic::input_manager::is_mouse_pressed(mouse_button btn)
 	}
 }
 
-bool sonic::input_manager::is_mouse_down(mouse_button btn)
+bool sonic::input_manager::is_mouse_down(mouse_button btn) const noexcept
 {
 	return (this->enabled) ? mouse_down[static_cast<std::vector<bool>::size_type>(btn) - 1] : false;
 }
 
-bool sonic::input_manager::is_mouse_up(mouse_button btn)
+bool sonic::input_manager::is_mouse_up(mouse_button btn) const noexcept
 {
 	return (this->enabled) ? mouse_up[static_cast<std::vector<bool>::size_type>(btn) - 1] : false;
 }
 
-std::int32_t sonic::input_manager::get_vertical_mouse_wheel_motion()
+std::int32_t sonic::input_manager::vertical_mouse_wheel_motion() const noexcept
 {
 	return mouse_wheel_y;
 }
 
-std::int32_t sonic::input_manager::get_horizontal_mouse_wheel_motion()
+std::int32_t sonic::input_manager::horizontal_mouse_wheel_motion() const noexcept
 {
 	return mouse_wheel_x;
 }
 
-SDL_Point sonic::input_manager::get_mouse_position(int cameraX, int cameraY)
+SDL_Point sonic::input_manager::mouse_position(int cameraX, int cameraY) const noexcept
 {
 	int x, y;
 	SDL_GetMouseState(&x, &y);
 	return { x + cameraX, y + cameraY };
 }
 
-bool sonic::input_manager::is_key_pressed(keyboard key)
+bool sonic::input_manager::is_key_pressed(keyboard key) const noexcept
 {
 	return (this->enabled) ? sdl_keyboard_state[static_cast<SDL_Scancode>(key)] : false;
 }
 
-bool sonic::input_manager::is_key_down(keyboard key)
+bool sonic::input_manager::is_key_down(keyboard key) const noexcept
 {
 	return (this->enabled) ? key_down[static_cast<std::vector<bool>::size_type>(key)] : false;
 }
 
-bool sonic::input_manager::is_key_up(keyboard key)
+bool sonic::input_manager::is_key_up(keyboard key) const noexcept
 {
 	return (this->enabled) ? key_up[static_cast<std::vector<bool>::size_type>(key)] : false;
 }
