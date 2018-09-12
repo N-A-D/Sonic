@@ -3,8 +3,7 @@
 namespace sonic {
 	namespace math {
 		// 2D space vector
-		class vec2D {
-		public:
+		struct vec2D {
 
 			// Constructors
 			vec2D();
