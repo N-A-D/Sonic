@@ -143,11 +143,6 @@ vec2D sonic::math::operator/(const vec2D & lhs, double scale) noexcept
 	return r;
 }
 
-vec2D sonic::math::operator/(double scale, const vec2D & rhs) noexcept
-{
-	return rhs / scale;
-}
-
 bool sonic::math::operator==(const vec2D & lhs, const vec2D & rhs) noexcept
 {
 	return approx_equal(lhs.x, rhs.x) && approx_equal(lhs.y, rhs.y);
