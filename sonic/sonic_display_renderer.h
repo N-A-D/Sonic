@@ -38,12 +38,12 @@ namespace sonic {
 
 			// Sets the color used for drawing ops 
 			// example:
-			// renderer.set_draw_color({ 255, 0, 0, 128 });
+			// renderer.draw_color({ 255, 0, 0, 128 });
 			void draw_color(const SDL_Color& color) noexcept;
 
 			// Gets the draw color of this renderer
 			// where the integers specify the R, G, B, and A values 
-			//SDL_Color draw_colors = renderer.get_draw_colors();
+			//SDL_Color draw_colors = renderer.draw_colors();
 			SDL_Color draw_color() const noexcept;
 
 			// Draws a colored line
