@@ -154,76 +154,76 @@ int sonic::util::rectangle::height() const noexcept
 	return h;
 }
 
-void sonic::util::rectangle::width(int val)
+void sonic::util::rectangle::width(int val) noexcept
 {
 	w = val;
 }
 
-void sonic::util::rectangle::height(int val)
+void sonic::util::rectangle::height(int val) noexcept
 {
 	h = val;
 }
 
-void sonic::util::rectangle::center(int x, int y)
+void sonic::util::rectangle::center(int x, int y) noexcept
 {
 	this->x = x - w / 2;
 	this->y = y - h / 2;
 }
 
-void sonic::util::rectangle::top_left(int x, int y)
+void sonic::util::rectangle::top_left(int x, int y) noexcept
 {
 	this->x = x;
 	this->y = y;
 }
 
-void sonic::util::rectangle::top_mid(int x, int y)
+void sonic::util::rectangle::top_mid(int x, int y) noexcept
 {
 	this->x = x - w / 2;
 	this->y = y;
 }
 
-void sonic::util::rectangle::top_right(int x, int y)
+void sonic::util::rectangle::top_right(int x, int y) noexcept
 {
 	this->x = x - w;
 	this->y = y;
 }
 
-void sonic::util::rectangle::mid_right(int x, int y)
+void sonic::util::rectangle::mid_right(int x, int y) noexcept
 {
 	this->x = x - w;
 	this->y = y - h / 2;
 }
 
-void sonic::util::rectangle::btm_right(int x, int y)
+void sonic::util::rectangle::btm_right(int x, int y) noexcept
 {
 	this->x = x - w;
 	this->y = y - h;
 }
 
-void sonic::util::rectangle::btm_mid(int x, int y)
+void sonic::util::rectangle::btm_mid(int x, int y) noexcept
 {
 	this->x = x - w / 2;
 	this->y = y - h;
 }
 
-void sonic::util::rectangle::btm_left(int x, int y)
+void sonic::util::rectangle::btm_left(int x, int y) noexcept
 {
 	this->x = x;
 	this->y = y - h;
 }
 
-void sonic::util::rectangle::mid_left(int x, int y)
+void sonic::util::rectangle::mid_left(int x, int y) noexcept
 {
 	this->x = x;
 	this->y = y - h / 2;
 }
 
-bool sonic::util::operator==(const rectangle & lhs, const rectangle & rhs)
+bool sonic::util::operator==(const rectangle & lhs, const rectangle & rhs) noexcept
 {
 	return lhs.x == rhs.x && lhs.y == rhs.y && lhs.w == rhs.w && lhs.h == rhs.h;
 }
 
-bool sonic::util::operator!=(const rectangle & lhs, const rectangle & rhs)
+bool sonic::util::operator!=(const rectangle & lhs, const rectangle & rhs) noexcept
 {
 	return !(lhs == rhs);
 }

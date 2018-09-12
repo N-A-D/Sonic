@@ -73,10 +73,10 @@ namespace sonic {
 			int height() const noexcept;
 
 			// Sets this rectangle's width component
-			void width(int val);
+			void width(int val) noexcept;
 
 			// Sets this rectangle's height component
-			void height(int val);
+			void height(int val) noexcept;
 
 			// Returns the center of the rectangle
 			SDL_Point center() const noexcept;
@@ -106,35 +106,35 @@ namespace sonic {
 			SDL_Point mid_left() const noexcept;
 
 			// Sets the center of the rectangle
-			void center(int x, int y);
+			void center(int x, int y) noexcept;
 
 			// Sets the top left of the rectangle
-			void top_left(int x, int y);
+			void top_left(int x, int y) noexcept;
 
 			// Sets the top mid of the rectangle
-			void top_mid(int x, int y);
+			void top_mid(int x, int y) noexcept;
 
 			// /Sets the top right of the rectangle
-			void top_right(int x, int y);
+			void top_right(int x, int y) noexcept;
 
 			// Sets the mid right of the rectangle
-			void mid_right(int x, int y);
+			void mid_right(int x, int y) noexcept;
 
 			// Sets the btm right of the rectangle
-			void btm_right(int x, int y);
+			void btm_right(int x, int y) noexcept;
 
 			// Sets the mid btm of the rectangle
-			void btm_mid(int x, int y);
+			void btm_mid(int x, int y) noexcept;
 
 			// Sets the btm left of the rectangle
-			void btm_left(int x, int y);
+			void btm_left(int x, int y) noexcept;
 
 			// Sets the mid of the rectangle
-			void mid_left(int x, int y);
+			void mid_left(int x, int y) noexcept;
 
 			// Operators
-			friend bool operator==(const rectangle& lhs, const rectangle& rhs);
-			friend bool operator!=(const rectangle& lhs, const rectangle& rhs);
+			friend bool operator==(const rectangle& lhs, const rectangle& rhs) noexcept;
+			friend bool operator!=(const rectangle& lhs, const rectangle& rhs) noexcept;
 
 			// rectangle vars
 			int x, y, w, h;
