@@ -22,12 +22,12 @@ namespace sonic {
 				sonic::util::rectangle boundary;
 				std::list<Entity> members;
 			};
-
+			
 			cell_space_partition(int world_width, int world_height, int num_cells_x, int num_cells_y)
 				: world_width(world_width)
 				, world_height(world_height)
-				, num_cells_x(num_cells_x)
-				, num_cells_y(num_cells_y)
+				, num_cells_x(num_cells_x == 0 ? 1 : std::abs(num_cells_x))
+				, num_cells_y(num_cells_y == 0 ? 1 : std::abs(num_cells_y))
 			{
 				int cell_width = world_width / num_cells_x;
 				int cell_height = world_height / num_cells_y;
