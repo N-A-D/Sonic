@@ -24,31 +24,31 @@ sonic::resource::audio_effect::operator bool() const noexcept
 	return chunk.get() != nullptr;
 }
 
-void sonic::resource::audio_effect::set_volume(int value)
+void sonic::resource::audio_effect::set_volume(int value) noexcept
 {
 	assert(chunk && "Cannot set the volume of an invalid audio sample.");
 	Mix_VolumeChunk(chunk.get(), value);
 }
 
-void sonic::resource::audio_effect::play(int channel, int loops)
+void sonic::resource::audio_effect::play(int channel, int loops) const noexcept
 {
 	assert(chunk && "Cannot play an invalid audio sample.");
 	Mix_PlayChannel(channel, chunk.get(), loops);
 }
 
-void sonic::resource::audio_effect::play_timed(int channel, int loops, int duration)
+void sonic::resource::audio_effect::play_timed(int channel, int loops, int duration) const noexcept
 {
 	assert(chunk && "Cannot play an invalid audio sample.");
 	Mix_PlayChannelTimed(channel, chunk.get(), loops, duration);
 }
 
-void sonic::resource::audio_effect::fade_in(int channel, int loops, int fade_in_time)
+void sonic::resource::audio_effect::fade_in(int channel, int loops, int fade_in_time) const noexcept
 {
 	assert(chunk && "Cannot play an invalid audio sample.");
 	Mix_FadeInChannel(channel, chunk.get(), loops, fade_in_time);
 }
 
-void sonic::resource::audio_effect::fade_in_timed(int channel, int loops, int fade_in_time, int duration)
+void sonic::resource::audio_effect::fade_in_timed(int channel, int loops, int fade_in_time, int duration) const noexcept
 {
 	assert(chunk && "Cannot play an invalid audio sample.");
 	Mix_FadeInChannelTimed(channel, chunk.get(), loops, fade_in_time, duration);
@@ -71,13 +71,13 @@ sonic::resource::music::operator bool() const noexcept
 	return track.get() != nullptr;
 }
 
-void sonic::resource::music::play(int loops)
+void sonic::resource::music::play(int loops) const noexcept
 {
 	assert(track && "Cannot play an invalid track track.");
 	Mix_PlayMusic(track.get(), loops);
 }
 
-void sonic::resource::music::fade_in(int loops, int fade_in_time)
+void sonic::resource::music::fade_in(int loops, int fade_in_time) const noexcept
 {
 	assert(track && "Cannot play an invalid track track.");
 	Mix_FadeInMusic(track.get(), loops, fade_in_time);
@@ -85,87 +85,87 @@ void sonic::resource::music::fade_in(int loops, int fade_in_time)
 
 
 // Sound management functions below
-void sonic::resource::snd_mgmt::allocate_channels(int n)
+void sonic::resource::snd_mgmt::allocate_channels(int n) noexcept
 {
 	Mix_AllocateChannels(n);
 }
 
-void sonic::resource::snd_mgmt::set_channel_volume(int channel, int volume)
+void sonic::resource::snd_mgmt::set_channel_volume(int channel, int volume) noexcept
 {
 	Mix_Volume(channel, volume);
 }
 
-void sonic::resource::snd_mgmt::pause_channel_playback(int channel)
+void sonic::resource::snd_mgmt::pause_channel_playback(int channel) noexcept
 {
 	Mix_Pause(channel);
 }
 
-void sonic::resource::snd_mgmt::resume_channel_playback(int channel)
+void sonic::resource::snd_mgmt::resume_channel_playback(int channel) noexcept
 {
 	Mix_Resume(channel);
 }
 
-void sonic::resource::snd_mgmt::halt_channel_playback(int channel)
+void sonic::resource::snd_mgmt::halt_channel_playback(int channel) noexcept
 {
 	Mix_HaltChannel(channel);
 }
 
-void sonic::resource::snd_mgmt::exipre_channel_playback(int channel, int duration)
+void sonic::resource::snd_mgmt::exipre_channel_playback(int channel, int duration) noexcept
 {
 	Mix_ExpireChannel(channel, duration);
 }
 
-void sonic::resource::snd_mgmt::fade_out_channel(int channel, int duration)
+void sonic::resource::snd_mgmt::fade_out_channel(int channel, int duration) noexcept
 {
 	Mix_FadeOutChannel(channel, duration);
 }
 
-int sonic::resource::snd_mgmt::is_channel_playing(int channel)
+int sonic::resource::snd_mgmt::is_channel_playing(int channel) noexcept
 {
 	return Mix_Playing(channel);
 }
 
-int sonic::resource::snd_mgmt::is_channel_paused(int channel)
+int sonic::resource::snd_mgmt::is_channel_paused(int channel) noexcept
 {
 	return Mix_Paused(channel);
 }
 
-void sonic::resource::snd_mgmt::set_music_volume(int value)
+void sonic::resource::snd_mgmt::set_music_volume(int value) noexcept
 {
 	Mix_VolumeMusic(value);
 }
 
-void sonic::resource::snd_mgmt::pause_music_playback()
+void sonic::resource::snd_mgmt::pause_music_playback() noexcept
 {
 	Mix_PauseMusic();
 }
 
-void sonic::resource::snd_mgmt::resume_music_playback()
+void sonic::resource::snd_mgmt::resume_music_playback() noexcept
 {
 	Mix_ResumeMusic();
 }
 
-void sonic::resource::snd_mgmt::rewind_music()
+void sonic::resource::snd_mgmt::rewind_music() noexcept
 {
 	Mix_RewindMusic();
 }
 
-void sonic::resource::snd_mgmt::halt_music_playback()
+void sonic::resource::snd_mgmt::halt_music_playback() noexcept
 {
 	Mix_HaltMusic();
 }
 
-void sonic::resource::snd_mgmt::fade_out_music(int duration)
+void sonic::resource::snd_mgmt::fade_out_music(int duration) noexcept
 {
 	Mix_FadeOutMusic(duration);
 }
 
-bool sonic::resource::snd_mgmt::is_music_playing()
+bool sonic::resource::snd_mgmt::is_music_playing() noexcept
 {
 	return (Mix_PlayingMusic() != 0) ? true : false;
 }
 
-bool sonic::resource::snd_mgmt::is_music_paused()
+bool sonic::resource::snd_mgmt::is_music_paused() noexcept
 {
 	return (Mix_PausedMusic() != 0) ? true : false;
 }

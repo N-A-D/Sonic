@@ -13,7 +13,7 @@ sonic::resource::sprite_sheet::operator bool() const noexcept
 	return this->ss_img;;
 }
 
-sonic::resource::texture sonic::resource::sprite_sheet::texture() noexcept
+sonic::resource::texture sonic::resource::sprite_sheet::texture() const noexcept
 {
 	return this->ss_img;
 }

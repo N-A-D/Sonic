@@ -18,41 +18,50 @@ namespace sonic {
 		class font;
 
 		// The texture class
+		// Is the base for the following classes: 
+		// resource::image
+		// resource::text
+		// resource::shaded_text
+	    // resource::blended_text
+		// 
+		// The class cannot be used explicitly but is used implicitly
+		// through the use of the aforementioned classes
 		class texture {
 		public:
 
-			// Constructs a new Texture
+			// Constructs a new texture
 			texture();
 
 			// Gets the width of the texture
-			int width();
+			int width() const noexcept;
 
 			// Gets the height of the texture
-			int height();
+			int height() const noexcept;
 
-			// Gets the format of this Texture
-			std::uint32_t format();
+			// Gets the format of this texture
+			std::uint32_t format() const noexcept;
 
 			// Converts this Texture to an SDL_Texture*
-			operator SDL_Texture*();
+			operator SDL_Texture*() const noexcept;
 
 			// Checks if this texture is valid
 			operator bool() const noexcept;
 
 			// Modulates the Texture's colors
-			void set_color_mod(const SDL_Color& color);
+			void color_mod(const SDL_Color& color) noexcept;
 
 			// Sets the blending mode for this texture
 			// This controls how the texture is blended
-			void set_blend_mode(SDL_BlendMode mode);
+			void blend_mode(SDL_BlendMode mode) noexcept;
 
 			// Modifies the Texture's alpha modulation
 			// This controls the transparency of a texture
-			void set_alpha_mod(std::uint8_t alpha_value);
+			void alpha_mod(std::uint8_t alpha_value) noexcept;
 
 		protected:
 
-			texture(SDL_Texture* t);
+			// Construct a new texture from an SDL_Texture
+			explicit texture(SDL_Texture* t);
 
 		private:
 			// Internally managed SDL texture
@@ -111,9 +120,9 @@ namespace sonic {
 		public:
 			blended_text() {}
 			blended_text(sonic::display::renderer& renderer, // The text renderer
-				sonic::resource::font& font,        // The font used for creating the rendered text
-				const std::string& text,            // The text 
-				const SDL_Color& text_color);       // The text color
+				sonic::resource::font& font,                 // The font used for creating the rendered text
+				const std::string& text,                     // The text 
+				const SDL_Color& text_color);                // The text color
 		private:
 			SDL_Texture* load_blended_text(sonic::display::renderer& renderer,
 				sonic::resource::font& font,

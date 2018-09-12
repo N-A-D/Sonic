@@ -8,22 +8,28 @@ sonic::resource::texture::texture() : m_texture(nullptr), w(0), h(0), texture_fo
 {
 }
 
-int sonic::resource::texture::width()
+sonic::resource::texture::texture(SDL_Texture * t)
+	: m_texture(std::shared_ptr<SDL_Texture>(t, [](SDL_Texture* t) { SDL_DestroyTexture(t); }))
+{
+	SDL_QueryTexture(t, &texture_format, nullptr, &w, &h);
+}
+
+int sonic::resource::texture::width() const noexcept
 {
 	return w;
 }
 
-int sonic::resource::texture::height()
+int sonic::resource::texture::height() const noexcept
 {
 	return h;
 }
 
-std::uint32_t sonic::resource::texture::format()
+std::uint32_t sonic::resource::texture::format() const noexcept
 {
 	return texture_format;
 }
 
-sonic::resource::texture::operator SDL_Texture*()
+sonic::resource::texture::operator SDL_Texture*() const noexcept
 {
 	assert(m_texture && "Cannot convert an invalid texture to SDL_Texture");
 	return m_texture.get();
@@ -34,31 +40,25 @@ sonic::resource::texture::operator bool() const noexcept
 	return m_texture.get() != nullptr;
 }
 
-void sonic::resource::texture::set_color_mod(const SDL_Color & color)
+void sonic::resource::texture::color_mod(const SDL_Color & color) noexcept
 {
 	assert(m_texture && "Cannot set the color mod of an invalid texture.");
 	// Forward work onto SDL_SetTextureColorMod
 	SDL_SetTextureColorMod(m_texture.get(), color.r, color.g, color.b);
 }
 
-void sonic::resource::texture::set_blend_mode(SDL_BlendMode mode)
+void sonic::resource::texture::blend_mode(SDL_BlendMode mode) noexcept
 {
 	assert(m_texture && "Cannot set the blend mode of an invalid texture.");
 	// Forward work onto SDL_SetTextureBlendMode
 	SDL_SetTextureBlendMode(m_texture.get(), mode);
 }
 
-void sonic::resource::texture::set_alpha_mod(std::uint8_t alpha_value)
+void sonic::resource::texture::alpha_mod(std::uint8_t alpha_value) noexcept
 {
 	assert(m_texture && "Cannot set the alpha mod of an invalid texture.");
 	// Forward work onto SDL_SetTextureAlphaMod
 	SDL_SetTextureAlphaMod(m_texture.get(), alpha_value);
-}
-
-sonic::resource::texture::texture(SDL_Texture * t)
-	: m_texture(std::shared_ptr<SDL_Texture>(t, [](SDL_Texture* t) { SDL_DestroyTexture(t); }))
-{
-	SDL_QueryTexture(t, &texture_format, nullptr, &w, &h);
 }
 
 sonic::resource::image::image(sonic::display::renderer & renderer, const std::string & path)

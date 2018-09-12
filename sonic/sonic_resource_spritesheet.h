@@ -40,7 +40,7 @@ namespace sonic {
 			operator bool() const noexcept;
 
 			// Returns the spritesheet texture
-			sonic::resource::texture texture() noexcept;
+			sonic::resource::texture texture() const noexcept;
 
 			// Returns the subtextue data linked to the given subtexture_name
 			// Note: an assertion is made for the existence of a subtexture image named 
