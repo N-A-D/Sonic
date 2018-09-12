@@ -23,7 +23,7 @@ namespace sonic {
 			double dist_to_sq(const vec2D& other) const noexcept;
 
 			// Returns the angle to another vector in degrees
-			double angle_to(const vec2D& other) const noexcept;
+			double angle_to(const vec2D& other) const;
 
 			// Returns the dot product between the caller and other
 			double dot(const vec2D& other) const noexcept;
@@ -32,10 +32,10 @@ namespace sonic {
 			vec2D rotate(double angle) const noexcept;
 
 			// Returns a copy of the caller normalized
-			vec2D norm() const noexcept;
+			vec2D norm() const;
 
 			// Returns a copy of the the caller truncated to size
-			vec2D trunc(double size) const noexcept;
+			vec2D trunc(double size) const;
 
 			// Returns a vector that is perpendicular to the calling vector
 			vec2D perp() const noexcept;
@@ -50,7 +50,7 @@ namespace sonic {
 			vec2D& operator+=(const vec2D& other) noexcept;
 			vec2D& operator-=(const vec2D& other) noexcept;
 			vec2D& operator*=(double scale) noexcept;
-			vec2D& operator/=(double scale) noexcept;
+			vec2D& operator/=(double scale);
 
 			double x, y;
 
@@ -61,7 +61,7 @@ namespace sonic {
 		vec2D operator-(const vec2D& lhs, const vec2D& rhs) noexcept;
 		vec2D operator*(const vec2D& lhs, double scale) noexcept;
 		vec2D operator*(double scale, const vec2D& rhs) noexcept;
-		vec2D operator/(const vec2D& lhs, double scale) noexcept;
+		vec2D operator/(const vec2D& lhs, double scale);
 		bool operator==(const vec2D& lhs, const vec2D& rhs) noexcept;
 		bool operator!=(const vec2D& lhs, const vec2D& rhs) noexcept;
 

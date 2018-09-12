@@ -1,4 +1,4 @@
-#include <assert.h>
+#include <stdexcept>
 #include "sonic_math_vec2D.h"
 #include "sonic_math_functions.h"
 #include "sonic_math_constants.h"
@@ -33,7 +33,7 @@ double sonic::math::vec2D::dist_to_sq(const vec2D & other) const noexcept
 	return pow(other.x - x, 2) + pow(other.y - y, 2);
 }
 
-double sonic::math::vec2D::angle_to(const vec2D & other) const noexcept
+double sonic::math::vec2D::angle_to(const vec2D & other) const
 {
 	auto v = this->norm();
 	auto w = other.norm();
@@ -53,14 +53,14 @@ vec2D sonic::math::vec2D::rotate(double angle) const noexcept
 	return vec2D(t_x, t_y);
 }
 
-vec2D sonic::math::vec2D::norm() const noexcept
+vec2D sonic::math::vec2D::norm() const
 {
-	double magnitude = this->length();
-	assert(magnitude != 0 && "Cannot normalize a vector of length zero!");
-	return vec2D(x / magnitude, y / magnitude);
+	double mag = this->length();
+	if (mag == 0) throw std::runtime_error("Cannot normalize a vector of length zero!");
+	return vec2D(x / mag, y / mag);
 }
 
-vec2D sonic::math::vec2D::trunc(double size) const noexcept
+vec2D sonic::math::vec2D::trunc(double size) const
 {
 	return this->norm() * size;
 }
@@ -102,9 +102,9 @@ vec2D & sonic::math::vec2D::operator*=(double scale) noexcept
 	return *this;
 }
 
-vec2D & sonic::math::vec2D::operator/=(double scale) noexcept
+vec2D & sonic::math::vec2D::operator/=(double scale)
 {
-	assert(scale != 0 && "Cannot divide a vector by zero!");
+	if (scale == 0) throw std::runtime_error("Cannot divide a vector by zero!");
 	x /= scale;
 	y /= scale;
 	return *this;
@@ -136,7 +136,7 @@ vec2D sonic::math::operator*(double scale, const vec2D & rhs) noexcept
 	return rhs * scale;
 }
 
-vec2D sonic::math::operator/(const vec2D & lhs, double scale) noexcept
+vec2D sonic::math::operator/(const vec2D & lhs, double scale)
 {
 	vec2D r = lhs;
 	r /= scale;
