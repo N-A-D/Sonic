@@ -25,15 +25,15 @@ namespace sonic {
 			// Checks if this renderer is valid
 			operator bool() const noexcept;
 
-			// Gets the window id that created this Renderer
+			// Gets the window id that created this display::renderer
 			std::uint32_t window_id() const noexcept;
 
 			// Converts this Renderer to an SDL_Renderer*
 			operator SDL_Renderer*() const noexcept;
 
-			// Sets the viewport for this Renderer
+			// Sets the viewport for this display::renderer
 			// example:
-			// renderer.set_viewport({ 128, 128, 64, 64 });
+			// renderer.viewport({ 128, 128, 64, 64 });
 			void viewport(const SDL_Rect& rect) noexcept;
 
 			// Sets the color used for drawing ops 
@@ -41,7 +41,7 @@ namespace sonic {
 			// renderer.draw_color({ 255, 0, 0, 128 });
 			void draw_color(const SDL_Color& color) noexcept;
 
-			// Gets the draw color of this renderer
+			// Gets the draw color of this display::renderer
 			// where the integers specify the R, G, B, and A values 
 			//SDL_Color draw_colors = renderer.draw_colors();
 			SDL_Color draw_color() const noexcept;
