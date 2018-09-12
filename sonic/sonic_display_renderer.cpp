@@ -29,13 +29,13 @@ std::uint32_t sonic::display::renderer::window_id() const noexcept
 	return w_id;
 }
 
-void sonic::display::renderer::viewport(const SDL_Rect & rect) noexcept
+void sonic::display::renderer::set_viewport(const SDL_Rect & rect) noexcept
 {
 	assert(m_renderer && "Cannot set the viewport of an invalid m_renderer.");
 	SDL_RenderSetViewport(m_renderer.get(), &rect);
 }
 
-void sonic::display::renderer::draw_color(const SDL_Color& color) noexcept
+void sonic::display::renderer::set_draw_color(const SDL_Color& color) noexcept
 {
 	assert(m_renderer && "Cannot set the draw color of an invalid m_renderer.");
 	SDL_SetRenderDrawColor(this->m_renderer.get(), color.r, color.g, color.b, color.a);

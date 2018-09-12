@@ -17,7 +17,7 @@ int sonic::resource::font::font_style() const noexcept
 	return TTF_GetFontStyle(m_font.get());
 }
 
-void sonic::resource::font::font_style(int style) noexcept
+void sonic::resource::font::set_font_style(int style) noexcept
 {
 	assert(m_font && "Cannot set the style of an invalid font.");
 	TTF_SetFontStyle(m_font.get(), style);
@@ -29,7 +29,7 @@ int sonic::resource::font::font_outline() const noexcept
 	return TTF_GetFontOutline(m_font.get());
 }
 
-void sonic::resource::font::font_outline(int outline_size) noexcept
+void sonic::resource::font::set_font_outline(int outline_size) noexcept
 {
 	assert(m_font && "Cannot set the outline of an invalid font.");
 	TTF_SetFontOutline(m_font.get(), outline_size);

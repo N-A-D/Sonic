@@ -33,13 +33,13 @@ namespace sonic {
 
 			// Sets the viewport for this display::renderer
 			// example:
-			// renderer.viewport({ 128, 128, 64, 64 });
-			void viewport(const SDL_Rect& rect) noexcept;
+			// renderer.set_viewport({ 128, 128, 64, 64 });
+			void set_viewport(const SDL_Rect& rect) noexcept;
 
 			// Sets the color used for drawing ops 
 			// example:
 			// renderer.draw_color({ 255, 0, 0, 128 });
-			void draw_color(const SDL_Color& color) noexcept;
+			void set_draw_color(const SDL_Color& color) noexcept;
 
 			// Gets the draw color of this display::renderer
 			// where the integers specify the R, G, B, and A values 

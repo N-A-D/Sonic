@@ -48,15 +48,15 @@ namespace sonic {
 			operator bool() const noexcept;
 
 			// Modulates the Texture's colors
-			void color_mod(const SDL_Color& color) noexcept;
+			void set_color_mod(const SDL_Color& color) noexcept;
 
 			// Sets the blending mode for this texture
 			// This controls how the texture is blended
-			void blend_mode(SDL_BlendMode mode) noexcept;
+			void set_blend_mode(SDL_BlendMode mode) noexcept;
 
 			// Modifies the Texture's alpha modulation
 			// This controls the transparency of a texture
-			void alpha_mod(std::uint8_t alpha_value) noexcept;
+			void set_alpha_mod(std::uint8_t alpha_value) noexcept;
 
 		protected:
 

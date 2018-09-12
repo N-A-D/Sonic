@@ -38,14 +38,14 @@ namespace sonic {
 			// TTF_STYLE_ITALIC
 			// TTF_STYLE_UNDERLINE
 			// TTF_STYLE_STRIKETHROUGH
-			void font_style(int style) noexcept;
+			void set_font_style(int style) noexcept;
 
 			// Returns the current size of the font's outline
 			int font_outline() const noexcept;
 
 			// Sets the font's outline size
 			// Passing in zero will remove outlines on the font
-			void font_outline(int outline_size) noexcept;
+			void set_font_outline(int outline_size) noexcept;
 
 			// Returns the maximum height of all glyphs using this font.
 			// This may be used for rendering text such that they are close 

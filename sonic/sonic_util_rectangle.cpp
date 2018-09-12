@@ -154,65 +154,65 @@ int sonic::util::rectangle::height() const noexcept
 	return h;
 }
 
-void sonic::util::rectangle::width(int val) noexcept
+void sonic::util::rectangle::set_width(int val) noexcept
 {
 	w = val;
 }
 
-void sonic::util::rectangle::height(int val) noexcept
+void sonic::util::rectangle::set_height(int val) noexcept
 {
 	h = val;
 }
 
-void sonic::util::rectangle::center(int x, int y) noexcept
+void sonic::util::rectangle::set_center(int x, int y) noexcept
 {
 	this->x = x - w / 2;
 	this->y = y - h / 2;
 }
 
-void sonic::util::rectangle::top_left(int x, int y) noexcept
+void sonic::util::rectangle::set_top_left(int x, int y) noexcept
 {
 	this->x = x;
 	this->y = y;
 }
 
-void sonic::util::rectangle::top_mid(int x, int y) noexcept
+void sonic::util::rectangle::set_top_mid(int x, int y) noexcept
 {
 	this->x = x - w / 2;
 	this->y = y;
 }
 
-void sonic::util::rectangle::top_right(int x, int y) noexcept
+void sonic::util::rectangle::set_top_right(int x, int y) noexcept
 {
 	this->x = x - w;
 	this->y = y;
 }
 
-void sonic::util::rectangle::mid_right(int x, int y) noexcept
+void sonic::util::rectangle::set_mid_right(int x, int y) noexcept
 {
 	this->x = x - w;
 	this->y = y - h / 2;
 }
 
-void sonic::util::rectangle::btm_right(int x, int y) noexcept
+void sonic::util::rectangle::set_btm_right(int x, int y) noexcept
 {
 	this->x = x - w;
 	this->y = y - h;
 }
 
-void sonic::util::rectangle::btm_mid(int x, int y) noexcept
+void sonic::util::rectangle::set_btm_mid(int x, int y) noexcept
 {
 	this->x = x - w / 2;
 	this->y = y - h;
 }
 
-void sonic::util::rectangle::btm_left(int x, int y) noexcept
+void sonic::util::rectangle::set_btm_left(int x, int y) noexcept
 {
 	this->x = x;
 	this->y = y - h;
 }
 
-void sonic::util::rectangle::mid_left(int x, int y) noexcept
+void sonic::util::rectangle::set_mid_left(int x, int y) noexcept
 {
 	this->x = x;
 	this->y = y - h / 2;

@@ -40,21 +40,21 @@ sonic::resource::texture::operator bool() const noexcept
 	return m_texture.get() != nullptr;
 }
 
-void sonic::resource::texture::color_mod(const SDL_Color & color) noexcept
+void sonic::resource::texture::set_color_mod(const SDL_Color & color) noexcept
 {
 	assert(m_texture && "Cannot set the color mod of an invalid texture.");
 	// Forward work onto SDL_SetTextureColorMod
 	SDL_SetTextureColorMod(m_texture.get(), color.r, color.g, color.b);
 }
 
-void sonic::resource::texture::blend_mode(SDL_BlendMode mode) noexcept
+void sonic::resource::texture::set_blend_mode(SDL_BlendMode mode) noexcept
 {
 	assert(m_texture && "Cannot set the blend mode of an invalid texture.");
 	// Forward work onto SDL_SetTextureBlendMode
 	SDL_SetTextureBlendMode(m_texture.get(), mode);
 }
 
-void sonic::resource::texture::alpha_mod(std::uint8_t alpha_value) noexcept
+void sonic::resource::texture::set_alpha_mod(std::uint8_t alpha_value) noexcept
 {
 	assert(m_texture && "Cannot set the alpha mod of an invalid texture.");
 	// Forward work onto SDL_SetTextureAlphaMod
