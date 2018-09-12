@@ -2,22 +2,22 @@
 #include "sonic_math_constants.h"
 #include <random>
 
-bool sonic::math::approx_equal(double a, double b)
+bool sonic::math::approx_equal(double a, double b) noexcept
 {
 	return fabs(a - b) <= EPSILON;
 }
 
-double sonic::math::deg_to_rad(double deg)
+double sonic::math::deg_to_rad(double deg) noexcept
 {
 	return M_PI / 180.0 * deg;
 }
 
-double sonic::math::rad_to_deg(double rad)
+double sonic::math::rad_to_deg(double rad) noexcept
 {
 	return rad * 180 / M_PI;
 }
 
-int sonic::math::rand_int(int x, int y)
+int sonic::math::rand_int(int x, int y) noexcept
 {
 	std::random_device rd;
 	std::mt19937 gen(rd());
@@ -25,7 +25,7 @@ int sonic::math::rand_int(int x, int y)
 	return dis(gen);
 }
 
-double sonic::math::rand_in_range(double x, double y)
+double sonic::math::rand_in_range(double x, double y) noexcept
 {
 	std::random_device rd;
 	std::mt19937 gen(rd());
@@ -33,7 +33,7 @@ double sonic::math::rand_in_range(double x, double y)
 	return dis(gen);
 }
 
-double sonic::math::random()
+double sonic::math::random() noexcept
 {
 	std::random_device rd;
 	std::mt19937 gen(rd());
@@ -41,7 +41,7 @@ double sonic::math::random()
 	return dis(gen);
 }
 
-bool sonic::math::is_zero(double value)
+bool sonic::math::is_zero(double value) noexcept
 {
 	return value > -MINDOUBLE && value < MINDOUBLE;
 }
