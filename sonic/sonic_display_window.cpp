@@ -74,7 +74,7 @@ void sonic::display::window::minimize() noexcept
 	SDL_MinimizeWindow(m_window.get());
 }
 
-void sonic::display::window::title(std::string title) noexcept
+void sonic::display::window::set_title(std::string title) noexcept
 {
 	SDL_SetWindowTitle(m_window.get(), title.c_str());
 }
@@ -84,7 +84,7 @@ std::string sonic::display::window::title() const noexcept
 	return std::string(SDL_GetWindowTitle(m_window.get()));
 }
 
-void sonic::display::window::brightness(int brightness)  noexcept
+void sonic::display::window::set_brightness(int brightness)  noexcept
 {
 	SDL_SetWindowBrightness(m_window.get(), static_cast<float>(brightness));
 }

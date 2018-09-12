@@ -46,13 +46,13 @@ namespace sonic {
 			void minimize() noexcept;
 
 			// Sets the title of the window
-			void title(std::string title) noexcept;
+			void set_title(std::string title) noexcept;
 
 			// Gets the title of the window
 			std::string title() const noexcept;
 
 			// Sets the brightness of the Window
-			void brightness(int brightness) noexcept;
+			void set_brightness(int brightness) noexcept;
 
 			// Gets the brightness of the Window
 			int brightness() const noexcept;
