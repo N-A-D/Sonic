@@ -4,7 +4,7 @@ sonic::util::clock::clock() : start_time(SDL_GetTicks()), pause_time(0), _is_pau
 {
 }
 
-void sonic::util::clock::start()
+void sonic::util::clock::start() noexcept
 {
 	_is_started = true;
 	_is_paused = false;
@@ -13,7 +13,7 @@ void sonic::util::clock::start()
 	pause_time = 0;
 }
 
-void sonic::util::clock::stop()
+void sonic::util::clock::stop() noexcept
 {
 	_is_started = false;
 	_is_paused = false;
@@ -22,7 +22,7 @@ void sonic::util::clock::stop()
 	pause_time = 0;
 }
 
-void sonic::util::clock::pause()
+void sonic::util::clock::pause() noexcept
 {
 	if (_is_started && !_is_paused) {
 		_is_paused = true;
@@ -31,7 +31,7 @@ void sonic::util::clock::pause()
 	}
 }
 
-void sonic::util::clock::unpause()
+void sonic::util::clock::unpause() noexcept
 {
 	if (_is_started && _is_paused) {
 		_is_paused = false;

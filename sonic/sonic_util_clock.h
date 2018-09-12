@@ -15,16 +15,16 @@ namespace sonic {
 			// clock functions
 
 			// Starts/Restarts the clock
-			void start();
+			void start() noexcept;
 
 			// Stop the clock. Effectively resetting it
-			void stop();
+			void stop() noexcept;
 
 			// Pauses the clock
-			void pause();
+			void pause() noexcept;
 
 			// Unpauses the clock
-			void unpause();
+			void unpause() noexcept;
 
 			// Returns the time (in milliseconds) delta from the previous call
 			std::uint32_t get_ticks() const noexcept;
