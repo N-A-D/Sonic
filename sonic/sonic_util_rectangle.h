@@ -12,10 +12,10 @@ namespace sonic {
 
 			// Conversion operator to SDL_Rect for functions
 			// taking SDL_Rects
-			operator SDL_Rect();
+			operator SDL_Rect() const noexcept;
 
 			// Returns whether or not this rectangle has zero size
-			operator bool();
+			operator bool() const noexcept;
 
 			// Returns the area of the rectangle
 			int area() const noexcept;
@@ -24,10 +24,10 @@ namespace sonic {
 			rectangle move(int offset_x, int offset_y) const noexcept;
 
 			// Returns a copy of the calling rectangle
-			rectangle copy();
+			rectangle copy() const noexcept;
 
 			// inflates the dimensions of the rectangle in place
-			void inflate_ip(int width, int height);
+			void inflate_ip(int width, int height) noexcept;
 
 			// inflates the dimensions of the rectangle
 			rectangle inflate(int width, int height) const noexcept;
@@ -36,14 +36,14 @@ namespace sonic {
 			rectangle clip(int width, int height) const noexcept;
 
 			// Combines two rectangles into one in place
-			void union_rect_ip(const rectangle& rect);
+			void union_rect_ip(const rectangle& rect) noexcept;
 
 			// Combines two rectangles into one
 			rectangle union_rect(const rectangle& rect) const noexcept;
 
 			// Combines many rectangles into one in place
 			template <class T>
-			void union_rect_all_ip(T begin, T end);
+			void union_rect_all_ip(T begin, T end) noexcept;
 
 			// Combines many rectangles into one
 			template <class T>
@@ -141,7 +141,7 @@ namespace sonic {
 		};
 
 		template<class T>
-		inline void rectangle::union_rect_all_ip(T begin, T end)
+		inline void rectangle::union_rect_all_ip(T begin, T end) noexcept
 		{
 			for (T i = begin; i != end; ++i)
 				union_rect_ip(*i);

@@ -6,12 +6,12 @@ sonic::util::rectangle::rectangle(int x, int y, int w, int h) : x(x), y(y), w(w)
 {
 }
 
-sonic::util::rectangle::operator SDL_Rect()
+sonic::util::rectangle::operator SDL_Rect() const noexcept
 {
 	return { x, y, w, h };
 }
 
-sonic::util::rectangle::operator bool()
+sonic::util::rectangle::operator bool() const noexcept
 {
 	return w != 0 && h != 0;
 }
@@ -26,12 +26,12 @@ rectangle sonic::util::rectangle::move(int offset_x, int offset_y) const noexcep
 	return rectangle(x + offset_x, y + offset_y, w, h);
 }
 
-rectangle sonic::util::rectangle::copy()
+rectangle sonic::util::rectangle::copy() const noexcept
 {
 	return rectangle(x, y, w, h);
 }
 
-void sonic::util::rectangle::inflate_ip(int width, int height)
+void sonic::util::rectangle::inflate_ip(int width, int height) noexcept
 {
 	w += width;
 	h += height;
@@ -47,7 +47,7 @@ rectangle sonic::util::rectangle::clip(int width, int height) const noexcept
 	return rectangle(x, y, width, height);
 }
 
-void sonic::util::rectangle::union_rect_ip(const rectangle & rect)
+void sonic::util::rectangle::union_rect_ip(const rectangle & rect) noexcept
 {
 	// Find the top left corner
 	int x_min = x < rect.x ? x : rect.x;
