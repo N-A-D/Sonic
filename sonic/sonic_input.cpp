@@ -1,13 +1,12 @@
 #include "sonic_input.h"
 
-sonic::input_manager::input_manager()
-{
-	sdl_keyboard_state = SDL_GetKeyboardState(&num_keys);
-	key_down = std::vector<bool>(num_keys, false);
-	key_up = std::vector<bool>(num_keys, false);
-	mouse_down = std::vector<bool>(MOUSE_BUTTON_MAX, false);
-	mouse_up = std::vector<bool>(MOUSE_BUTTON_MAX, false);
-}
+sonic::input_manager::input_manager() 
+	: sdl_keyboard_state(SDL_GetKeyboardState(&num_keys))
+	, key_down(num_keys, false)
+	, key_up(num_keys, false)
+	, mouse_down(MOUSE_BUTTON_MAX, false)
+	, mouse_up(MOUSE_BUTTON_MAX, false)
+{}
 
 void sonic::input_manager::process_input() noexcept
 {
