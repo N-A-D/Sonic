@@ -4,6 +4,7 @@
 #include "..\sonic\sonic_math_vec2D.h"
 #include "..\sonic\sonic_math_functions.h"
 
+
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace math
@@ -11,7 +12,7 @@ namespace math
 	TEST_CLASS(vec2D)
 	{
 	public:
-		
+
 		TEST_METHOD(length)
 		{
 			sonic::math::vec2D v(3, 4);
@@ -60,7 +61,7 @@ namespace math
 		TEST_METHOD(scale) {
 			sonic::math::vec2D v(3, 4);
 			Assert::IsTrue(v.length() == 5);
-			v.scale(10);
+			v = v.trunc(10);
 			Assert::IsTrue(v.length() == 10);
 		}
 
@@ -80,6 +81,57 @@ namespace math
 		TEST_METHOD(is_zero) {
 			sonic::math::vec2D v(3, 4);
 			Assert::IsFalse(v.is_zero());
+			v.zero();
+			Assert::IsTrue(v.is_zero());
+		}
+
+		TEST_METHOD(compound_addition) {
+			sonic::math::vec2D v1(3, 4);
+			sonic::math::vec2D v2(3, 4);
+			v1 += v2;
+			Assert::IsTrue(v1.x == 6 && v1.y == 8);
+		}
+
+		TEST_METHOD(compound_subtraction) {
+			sonic::math::vec2D v1(3, 4);
+			sonic::math::vec2D v2(3, 4);
+			v1 -= v2;
+			Assert::IsTrue(v1.x == 0 && v1.y == 0);
+		}
+
+		TEST_METHOD(compound_multiplication) {
+			sonic::math::vec2D v1(3, 4);
+			v1 *= 3;
+			Assert::IsTrue(v1.x == 9 && v1.y == 12);
+		}
+
+		TEST_METHOD(compound_division) {
+			sonic::math::vec2D v1(12, 16);
+			v1 /= 4;
+			Assert::IsTrue(v1.x == 3 && v1.y == 4);
+		}
+
+		TEST_METHOD(addition) {
+			// Addition
+			auto v2 = sonic::math::vec2D(3, 4) + sonic::math::vec2D(1, 1);
+			Assert::IsTrue(v2.x == 4 && v2.y == 5);
+		}
+
+		TEST_METHOD(subtraction) {
+			auto v = sonic::math::vec2D(3, 4) - sonic::math::vec2D(1, 1);
+			Assert::IsTrue(v.x == 2 && v.y == 3);
+		}
+
+		TEST_METHOD(multiplcation) {
+			auto v = sonic::math::vec2D(3, 4) * 3;
+			Assert::IsTrue(v.x == 9 && v.y == 12);
+			v = 3 * sonic::math::vec2D(3, 4);
+			Assert::IsTrue(v.x == 9 && v.y == 12);
+		}
+
+		TEST_METHOD(division) {
+			auto v = sonic::math::vec2D(9, 12) / 3;
+			Assert::IsTrue(v.x == 3 && v.y == 4);
 		}
 	};
 
@@ -87,37 +139,33 @@ namespace math
 	public:
 
 		TEST_METHOD(approx_equal) {
-			Assert::IsTrue(sonic::math::approx_equal(0.0000000000000000000000555, 0.00000000000000000000000000021));
-			Assert::IsFalse(sonic::math::approx_equal(0.0123, 0.124));
+			Assert::IsTrue(sonic::math::approx_equal(1e-52, 1.5e-52));
+			Assert::IsFalse(sonic::math::approx_equal(0.02, 0.017));
 		}
-		TEST_METHOD(DegToRad) {
-			// Why you no work M_PI_2?
+		
+		TEST_METHOD(deg_to_rad) {
 			Assert::IsTrue(sonic::math::approx_equal(1.57079632679489661923, sonic::math::deg_to_rad(90.0)));
 		}
 
-		TEST_METHOD(RadToDeg) {
-			// M_PI_2!!!!!!!
+		TEST_METHOD(rad_to_deg) {
 			Assert::IsTrue(sonic::math::approx_equal(90.0, sonic::math::rad_to_deg(1.57079632679489661923)));
 		}
 
-		TEST_METHOD(RandINT) {
-			int x = sonic::math::rand_int(1, 10);
-			Assert::IsTrue(x >= 1 && x <= 10);
+		TEST_METHOD(rand_int) {
+			int value = sonic::math::rand_int(11, 100);
+			Assert::IsTrue(11 <= value && value <= 100);
 		}
 
-		TEST_METHOD(RandInRange) {
-			double x = sonic::math::rand_in_range(75, 75.5);
-			Assert::IsTrue(x >= 75.0 && x <= 75.5);
+		TEST_METHOD(rand_in_range) {
+			double value = sonic::math::rand_in_range(static_cast<double>(10), static_cast<double>(20));
+			Assert::IsTrue(10 <= value && value <= 20);
 		}
 
-		TEST_METHOD(RandomZeroOne) {
-			double x = sonic::math::random();
-			Assert::IsTrue(x >= 0 && x <= 1);
+		TEST_METHOD(random) {
+			double value = 0;
+			value = sonic::math::random<double>();
+			Assert::IsTrue(0 <= value && value <= 1);
 		}
 
-		TEST_METHOD(Zero) {
-			double x = 5.2e-400; // hella small
-			Assert::IsTrue(sonic::math::is_zero(x));
-		}
 	};
 }
