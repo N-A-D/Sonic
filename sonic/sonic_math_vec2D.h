@@ -7,7 +7,7 @@ namespace sonic {
 	namespace math {
 
 		// 2D space vector
-		template <class T = double>
+		template <class T>
 		struct vec2 {
 
 			// Constructors
