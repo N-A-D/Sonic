@@ -59,12 +59,6 @@
     <ClInclude Include="sonic_scene_csp.h">
       <Filter>Header Files\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="sonic_math_vec2D.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="sonic_math_constants.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
     <ClInclude Include="sonic_math_functions.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
@@ -110,16 +104,13 @@
     <ClInclude Include="sonic_resource_sound.h">
       <Filter>Header Files\Resource</Filter>
     </ClInclude>
+    <ClInclude Include="sonic_math_vec2D.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sonic.cpp">
       <Filter>Source Files\Init</Filter>
-    </ClCompile>
-    <ClCompile Include="sonic_math_vec2D.cpp">
-      <Filter>Source Files\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="sonic_math_functions.cpp">
-      <Filter>Source Files\Math</Filter>
     </ClCompile>
     <ClCompile Include="sonic_util_rectangle.cpp">
       <Filter>Source Files\Util</Filter>

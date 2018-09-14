@@ -155,7 +155,6 @@
     <ClInclude Include="sonic_util_fps_counter.h" />
     <ClInclude Include="sonic_util_frame_timer.h" />
     <ClInclude Include="sonic_input.h" />
-    <ClInclude Include="sonic_math_constants.h" />
     <ClInclude Include="sonic_math_functions.h" />
     <ClInclude Include="sonic_math_vec2D.h" />
     <ClInclude Include="sonic_scene_csp.h" />
@@ -168,8 +167,6 @@
     <ClCompile Include="sonic_display_renderer.cpp" />
     <ClCompile Include="sonic_display_window.cpp" />
     <ClCompile Include="sonic_input.cpp" />
-    <ClCompile Include="sonic_math_functions.cpp" />
-    <ClCompile Include="sonic_math_vec2D.cpp" />
     <ClCompile Include="sonic_resource.cpp" />
     <ClCompile Include="sonic_resource_font.cpp" />
     <ClCompile Include="sonic_resource_sound.cpp" />
