@@ -12,19 +12,20 @@ namespace sonic {
 		// The window class
 		class window final {
 		public:
-			// Creates a new Window
-			window(const std::string& title = "",			         // Window title
-				int w = 640, int h = 480,                                // Window dimensions
-				std::uint32_t window_flags = SDL_WINDOW_SHOWN,           // Window creation flags
-				std::uint32_t renderer_flags = SDL_RENDERER_ACCELERATED, // Renderer creation flags
-				int x = SDL_WINDOWPOS_UNDEFINED,                         // Window x position
-				int y = SDL_WINDOWPOS_UNDEFINED				 // Windiow y position
-			);
+			window(int width                                              // Window width
+				  , int height                                            // Window height
+				  , const std::string& title="Generic window"             // Window title
+				  , std::uint32_t window_flags=SDL_WINDOW_SHOWN           // Window flags
+				  , std::uint32_t renderer_flags=SDL_RENDERER_ACCELERATED // Renderer flags
+				  , int x=SDL_WINDOWPOS_UNDEFINED                         // Starting x position
+				  , int y=SDL_WINDOWPOS_UNDEFINED                         // Starting y position
+			      );
 
 			// Returns the rendering context for this window
 			sonic::display::renderer renderer() const noexcept;
 
 			// Sets the dimensions of the Window
+			// Note: Nothing happens if this window was created without the SDL_WINDOW_RESIZABLE flag
 			void resize(int width, int height) noexcept;
 
 			// Sets the Window to fullscreen mode
@@ -33,17 +34,29 @@ namespace sonic {
 			// Removes window borders around the window screen
 			void toggle_borders() noexcept;
 
-			// Sets the position of the window
-			void move_to(int x, int y) noexcept;
+			// Centers the screen if it isn't already centered
+			void center() noexcept;
 
-			// Restores the size and position of a minimized or maximized window
-			void restore() noexcept;
+			// Checks if this window is minimized
+			bool is_minimized() const noexcept;
 
-			// Maximizes the window
-			void maximize() noexcept;
+			// Checks if this window is maximized
+			bool is_maximized() const noexcept;
 
-			// Minimizes the window
-			void minimize() noexcept;
+			// Checks if this window is resizable
+			bool is_resizable() const noexcept;
+
+			// Checks if this window is fullscreen
+			bool is_fullscreen() const noexcept;
+
+			// Checks if this window is borderless
+			bool is_borderless() const noexcept;
+			
+			// Checks if this window has mouse focus
+			bool has_mouse_focus() const noexcept;
+		
+			// Checks if this window has keyboard focus
+			bool has_keyboard_focus() const noexcept;
 
 			// Sets the title of the window
 			void set_title(std::string title) noexcept;
@@ -56,6 +69,9 @@ namespace sonic {
 
 			// Gets the brightness of the Window
 			int brightness() const noexcept;
+
+			// Sets the window icon 
+			void set_window_icon(SDL_Surface* icon) noexcept;
 
 			// Returns the Window's id
 			std::uint32_t window_id() const noexcept;

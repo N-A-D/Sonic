@@ -1,10 +1,13 @@
 #include "sonic_display_window.h"
 
-sonic::display::window::window(const std::string& title, int w, int h, std::uint32_t window_flags, std::uint32_t renderer_flags, int x, int y)
+sonic::display::window::window(int w, int h, const std::string& title, std::uint32_t window_flags, std::uint32_t renderer_flags, int x, int y)
 	: w(w), h(h), fullscreen(false), borderless(false), m_window(std::unique_ptr<SDL_Window, window_deleter>(SDL_CreateWindow(title.c_str(), x, y, w, h, window_flags)))
 {
 	if (!m_window)
 		throw std::runtime_error(std::string("Could not create window -- ") + SDL_GetError());
+
+	// Initialize the window's id
+	w_id = SDL_GetWindowID(m_window.get());
 
 	// Create the window's renderer
 	create_display_renderer(renderer_flags);
@@ -17,6 +20,7 @@ sonic::display::renderer sonic::display::window::renderer() const noexcept
 
 void sonic::display::window::resize(int width, int height) noexcept
 {
+	if ((SDL_WINDOW_RESIZABLE & SDL_GetWindowFlags(m_window.get())) != SDL_WINDOW_RESIZABLE) return;
 	SDL_SetWindowSize(m_window.get(), width, height);
 	refresh();
 }
@@ -49,30 +53,46 @@ void sonic::display::window::toggle_borders() noexcept
 	}
 }
 
-void sonic::display::window::move_to(int x, int y) noexcept
+void sonic::display::window::center() noexcept
 {
-	SDL_SetWindowPosition(m_window.get(), x, y);
-	refresh();
+	SDL_SetWindowPosition(m_window.get(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
 }
 
-void sonic::display::window::restore() noexcept
+bool sonic::display::window::is_minimized() const noexcept
 {
-	SDL_RestoreWindow(m_window.get());
-	refresh();
-	SDL_GetWindowSize(m_window.get(), &w, &h);
+	return (SDL_GetWindowFlags(m_window.get()) & SDL_WINDOW_MINIMIZED) == SDL_WINDOW_MINIMIZED;
 }
 
-void sonic::display::window::maximize() noexcept
+bool sonic::display::window::is_maximized() const noexcept
 {
-	SDL_MaximizeWindow(m_window.get());
-	refresh();
-	SDL_GetWindowSize(m_window.get(), &w, &h);
+	return (SDL_GetWindowFlags(m_window.get()) & SDL_WINDOW_MAXIMIZED) == SDL_WINDOW_MAXIMIZED;
 }
 
-void sonic::display::window::minimize() noexcept
+bool sonic::display::window::is_resizable() const noexcept
 {
-	SDL_MinimizeWindow(m_window.get());
+	return (SDL_GetWindowFlags(m_window.get()) & SDL_WINDOW_RESIZABLE) == SDL_WINDOW_RESIZABLE;
 }
+
+bool sonic::display::window::is_fullscreen() const noexcept
+{
+	return fullscreen;
+}
+
+bool sonic::display::window::is_borderless() const noexcept
+{
+	return borderless;
+}
+
+bool sonic::display::window::has_mouse_focus() const noexcept
+{
+	return (SDL_GetWindowFlags(m_window.get()) & SDL_WINDOW_INPUT_FOCUS) == SDL_WINDOW_INPUT_FOCUS;
+}
+
+bool sonic::display::window::has_keyboard_focus() const noexcept
+{
+	return (SDL_GetWindowFlags(m_window.get()) & SDL_WINDOW_MOUSE_FOCUS) == SDL_WINDOW_MOUSE_FOCUS;
+}
+
 
 void sonic::display::window::set_title(std::string title) noexcept
 {
@@ -94,6 +114,11 @@ int sonic::display::window::brightness() const noexcept
 	return static_cast<int>(SDL_GetWindowBrightness(m_window.get()));
 }
 
+void sonic::display::window::set_window_icon(SDL_Surface * icon) noexcept
+{
+	SDL_SetWindowIcon(m_window.get(), icon);
+}
+
 std::uint32_t sonic::display::window::window_id() const noexcept
 {
 	return w_id;
@@ -111,8 +136,6 @@ int sonic::display::window::height() const noexcept
 
 void sonic::display::window::create_display_renderer(std::uint32_t renderer_flags)
 {
-	w_id = SDL_GetWindowID(m_window.get());
-
 	SDL_Renderer *renderer_ptr = SDL_CreateRenderer(m_window.get(), -1, renderer_flags);
 
 	if (!renderer_ptr)
