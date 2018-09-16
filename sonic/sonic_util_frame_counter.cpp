@@ -31,7 +31,7 @@ double sonic::util::frame_counter::max_frame_rate() noexcept
 
 void sonic::util::frame_counter::set_sample_size(size_t sample_size) noexcept
 {
-	sample_size = sample_size;
+	this->sample_size = sample_size;
 	frame_times.resize(sample_size);
 }
 
