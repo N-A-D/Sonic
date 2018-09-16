@@ -152,7 +152,7 @@
     <ClInclude Include="sonic_resource_spritesheet.h" />
     <ClInclude Include="sonic_resource_texture.h" />
     <ClInclude Include="sonic_util_clock.h" />
-    <ClInclude Include="sonic_util_fps_counter.h" />
+    <ClInclude Include="sonic_util_frame_counter.h" />
     <ClInclude Include="sonic_util_frame_timer.h" />
     <ClInclude Include="sonic_input.h" />
     <ClInclude Include="sonic_math_functions.h" />
@@ -175,7 +175,7 @@
     <ClCompile Include="sonic_scene_obstacle.cpp" />
     <ClCompile Include="sonic_scene_wall.cpp" />
     <ClCompile Include="sonic_util_clock.cpp" />
-    <ClCompile Include="sonic_util_fps_counter.cpp" />
+    <ClCompile Include="sonic_util_frame_counter.cpp" />
     <ClCompile Include="sonic_util_frame_timer.cpp" />
     <ClCompile Include="sonic_util_rectangle.cpp" />
   </ItemGroup>

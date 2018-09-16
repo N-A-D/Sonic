@@ -9,9 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Header Files\Input">
-      <UniqueIdentifier>{5fad0030-d9d3-4cdf-8804-1c4f53512f0d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Display">
       <UniqueIdentifier>{6a819161-ed77-4dc4-9fd6-4e08e9dfb1c5}</UniqueIdentifier>
     </Filter>
@@ -26,9 +23,6 @@
     </Filter>
     <Filter Include="Header Files\Math">
       <UniqueIdentifier>{41bdd6b6-b3d9-4b1a-a888-f5d72cce4e93}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Input">
-      <UniqueIdentifier>{2e6fe816-877e-4c02-b775-9b3504eee761}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Init">
       <UniqueIdentifier>{84ca9449-5fa6-4ec8-a191-cb336249fdee}</UniqueIdentifier>
@@ -51,6 +45,12 @@
     <Filter Include="Source Files\Resource">
       <UniqueIdentifier>{be680c72-3ed9-4992-9832-cb5a31f55509}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Input">
+      <UniqueIdentifier>{5fad0030-d9d3-4cdf-8804-1c4f53512f0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Input">
+      <UniqueIdentifier>{2e6fe816-877e-4c02-b775-9b3504eee761}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sonic.h">
@@ -71,9 +71,6 @@
     <ClInclude Include="sonic_scene_wall.h">
       <Filter>Header Files\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="sonic_util_fps_counter.h">
-      <Filter>Header Files\Util</Filter>
-    </ClInclude>
     <ClInclude Include="sonic_util_frame_timer.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
@@ -83,17 +80,11 @@
     <ClInclude Include="sonic_util_clock.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
-    <ClInclude Include="sonic_display_window.h">
-      <Filter>Header Files\Display</Filter>
-    </ClInclude>
     <ClInclude Include="sonic_resource_texture.h">
       <Filter>Header Files\Resource</Filter>
     </ClInclude>
     <ClInclude Include="sonic_resource_spritesheet.h">
       <Filter>Header Files\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="sonic_input.h">
-      <Filter>Header Files\Input</Filter>
     </ClInclude>
     <ClInclude Include="sonic_display_renderer.h">
       <Filter>Header Files\Display</Filter>
@@ -106,6 +97,15 @@
     </ClInclude>
     <ClInclude Include="sonic_math_vec2D.h">
       <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="sonic_display_window.h">
+      <Filter>Header Files\Display</Filter>
+    </ClInclude>
+    <ClInclude Include="sonic_input.h">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="sonic_util_frame_counter.h">
+      <Filter>Header Files\Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -124,9 +124,6 @@
     <ClCompile Include="sonic_resource.cpp">
       <Filter>Source Files\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="sonic_input.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
     <ClCompile Include="sonic_resource_font.cpp">
       <Filter>Source Files\Resource</Filter>
     </ClCompile>
@@ -139,19 +136,22 @@
     <ClCompile Include="sonic_display_renderer.cpp">
       <Filter>Source Files\Display</Filter>
     </ClCompile>
-    <ClCompile Include="sonic_display_window.cpp">
-      <Filter>Source Files\Display</Filter>
-    </ClCompile>
     <ClCompile Include="sonic_resource_spritesheet.cpp">
       <Filter>Source Files\Resource</Filter>
     </ClCompile>
     <ClCompile Include="sonic_util_clock.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
-    <ClCompile Include="sonic_util_fps_counter.cpp">
+    <ClCompile Include="sonic_util_frame_timer.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
-    <ClCompile Include="sonic_util_frame_timer.cpp">
+    <ClCompile Include="sonic_display_window.cpp">
+      <Filter>Source Files\Display</Filter>
+    </ClCompile>
+    <ClCompile Include="sonic_input.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="sonic_util_frame_counter.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
   </ItemGroup>

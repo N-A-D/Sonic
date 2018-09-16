@@ -131,6 +131,9 @@ namespace sonic {
 			std::uint32_t w_id;
 		};
 
+		bool operator==(const sonic::display::renderer& a, const sonic::display::renderer& b) noexcept;
+		bool operator!=(const sonic::display::renderer& a, const sonic::display::renderer& b) noexcept;
+
 		template<class In>
 		inline void renderer::draw_lines(In begin, In end) noexcept
 		{

@@ -97,3 +97,13 @@ void sonic::display::renderer::display() noexcept
 	assert(m_renderer && "renderer is invalid");
 	SDL_RenderPresent(this->m_renderer.get());
 }
+
+bool sonic::display::operator==(const sonic::display::renderer & a, const sonic::display::renderer & b) noexcept
+{
+	return a.window_id() == b.window_id();
+}
+
+bool sonic::display::operator!=(const sonic::display::renderer & a, const sonic::display::renderer & b) noexcept
+{
+	return !(a == b);
+}
