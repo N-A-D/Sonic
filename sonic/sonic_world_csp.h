@@ -9,7 +9,7 @@
 #include "sonic_util_rectangle.h"
 
 namespace sonic {
-	namespace scene {
+	namespace world {
 
 		// Divides space into cells
 		template <class Entity>

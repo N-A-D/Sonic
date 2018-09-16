@@ -4,7 +4,7 @@
 #include "sonic_util_instance_counter.h"
 
 namespace sonic {
-	namespace scene {
+	namespace world {
 		
 		// The obstacle class
 		// Defined as a position and a radius

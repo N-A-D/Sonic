@@ -157,8 +157,8 @@
     <ClInclude Include="sonic_input.h" />
     <ClInclude Include="sonic_math_functions.h" />
     <ClInclude Include="sonic_math_vec2D.h" />
-    <ClInclude Include="sonic_scene_csp.h" />
-    <ClInclude Include="sonic_scene_wall.h" />
+    <ClInclude Include="sonic_world_csp.h" />
+    <ClInclude Include="sonic_world_wall.h" />
     <ClInclude Include="sonic_util_instance_counter.h" />
     <ClInclude Include="sonic_util_rectangle.h" />
   </ItemGroup>
@@ -172,15 +172,15 @@
     <ClCompile Include="sonic_resource_sound.cpp" />
     <ClCompile Include="sonic_resource_spritesheet.cpp" />
     <ClCompile Include="sonic_resource_texture.cpp" />
-    <ClCompile Include="sonic_scene_obstacle.cpp" />
-    <ClCompile Include="sonic_scene_wall.cpp" />
+    <ClCompile Include="sonic_world_obstacle.cpp" />
+    <ClCompile Include="sonic_world_wall.cpp" />
     <ClCompile Include="sonic_util_clock.cpp" />
     <ClCompile Include="sonic_util_frame_counter.cpp" />
     <ClCompile Include="sonic_util_frame_timer.cpp" />
     <ClCompile Include="sonic_util_rectangle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="sonic_scene_obstacle.h" />
+    <None Include="sonic_world_obstacle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

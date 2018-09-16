@@ -18,9 +18,6 @@
     <Filter Include="Header Files\Util">
       <UniqueIdentifier>{a1ba6f54-1624-4b9f-8efa-c0b3c3d9c7ab}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Scene">
-      <UniqueIdentifier>{7bf80c25-0c64-4038-a5bf-4ef773e09c0c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Math">
       <UniqueIdentifier>{41bdd6b6-b3d9-4b1a-a888-f5d72cce4e93}</UniqueIdentifier>
     </Filter>
@@ -32,9 +29,6 @@
     </Filter>
     <Filter Include="Source Files\Math">
       <UniqueIdentifier>{2185f120-a193-4c8e-8d60-d23b586bd876}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Scene">
-      <UniqueIdentifier>{fab6e5f4-2ded-480b-8d10-e4fce17f8d59}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Util">
       <UniqueIdentifier>{e70428b9-9612-4fc4-af64-4bbbbe77769d}</UniqueIdentifier>
@@ -51,13 +45,16 @@
     <Filter Include="Source Files\Input">
       <UniqueIdentifier>{2e6fe816-877e-4c02-b775-9b3504eee761}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\World">
+      <UniqueIdentifier>{7bf80c25-0c64-4038-a5bf-4ef773e09c0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\World">
+      <UniqueIdentifier>{fab6e5f4-2ded-480b-8d10-e4fce17f8d59}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sonic.h">
       <Filter>Header Files\Init</Filter>
-    </ClInclude>
-    <ClInclude Include="sonic_scene_csp.h">
-      <Filter>Header Files\Scene</Filter>
     </ClInclude>
     <ClInclude Include="sonic_math_functions.h">
       <Filter>Header Files\Math</Filter>
@@ -67,9 +64,6 @@
     </ClInclude>
     <ClInclude Include="sonic_util_instance_counter.h">
       <Filter>Header Files\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="sonic_scene_wall.h">
-      <Filter>Header Files\Scene</Filter>
     </ClInclude>
     <ClInclude Include="sonic_util_frame_timer.h">
       <Filter>Header Files\Util</Filter>
@@ -107,6 +101,12 @@
     <ClInclude Include="sonic_util_frame_counter.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
+    <ClInclude Include="sonic_world_csp.h">
+      <Filter>Header Files\World</Filter>
+    </ClInclude>
+    <ClInclude Include="sonic_world_wall.h">
+      <Filter>Header Files\World</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sonic.cpp">
@@ -114,12 +114,6 @@
     </ClCompile>
     <ClCompile Include="sonic_util_rectangle.cpp">
       <Filter>Source Files\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="sonic_scene_obstacle.cpp">
-      <Filter>Source Files\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="sonic_scene_wall.cpp">
-      <Filter>Source Files\Scene</Filter>
     </ClCompile>
     <ClCompile Include="sonic_resource.cpp">
       <Filter>Source Files\Resource</Filter>
@@ -154,10 +148,16 @@
     <ClCompile Include="sonic_util_frame_counter.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
+    <ClCompile Include="sonic_world_wall.cpp">
+      <Filter>Source Files\World</Filter>
+    </ClCompile>
+    <ClCompile Include="sonic_world_obstacle.cpp">
+      <Filter>Source Files\World</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="sonic_scene_obstacle.h">
-      <Filter>Header Files\Scene</Filter>
+    <None Include="sonic_world_obstacle.h">
+      <Filter>Header Files\World</Filter>
     </None>
   </ItemGroup>
 </Project>

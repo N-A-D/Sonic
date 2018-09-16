@@ -2,7 +2,7 @@
 #include "sonic_util_instance_counter.h"
 
 namespace sonic {
-	namespace scene {
+	namespace world {
 		
 		// The wall class
 		// Defined by the two vectors start and end
