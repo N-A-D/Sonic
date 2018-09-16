@@ -1,5 +1,4 @@
 #include <assert.h>
-#include <stdexcept>
 #include "sonic_resource_texture.h"
 #include "sonic_display_renderer.h"
 
