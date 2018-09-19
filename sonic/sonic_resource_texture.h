@@ -25,7 +25,7 @@ namespace sonic {
 	    // resource::blended_text
 		// 
 		// The class cannot be used explicitly but is used implicitly
-		// through the use of the aforementioned classes
+		// when rendering to a screen through the use of the aforementioned classes 
 		class texture {
 		public:
 
