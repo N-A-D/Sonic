@@ -5,8 +5,8 @@
 #include <vector>
 #include <numeric>
 #include <functional>
-#include "sonic_math_vec2D.h"
-#include "sonic_util_rectangle.h"
+#include "..\math\sonic_math_vec2D.h"
+#include "..\util\sonic_util_rectangle.h"
 
 namespace sonic {
 	namespace world {
@@ -17,8 +17,8 @@ namespace sonic {
 		public:
 
 			// The internal cell type
-			struct cell_t {
-				cell_t(int x, int y, int w, int h) : boundary(x, y, w, h) {}
+			struct cell {
+				cell(int x, int y, int w, int h) : boundary(x, y, w, h) {}
 				sonic::util::rectangle boundary;
 				std::list<Entity> members;
 			};
@@ -34,7 +34,7 @@ namespace sonic {
 				// Cells are stored in column major form
 				for (int x = 0; x < num_cells_x; x++) {
 					for (int y = 0; y < num_cells_y; y++) {
-						grid.push_back(cell_t(x* cell_width, y * cell_height, cell_width, cell_height));
+						grid.push_back(cell(x* cell_width, y * cell_height, cell_width, cell_height));
 					}
 				}
 
@@ -42,7 +42,7 @@ namespace sonic {
 
 			// Returns the number of entities contained by this cell space grid
 			std::size_t entities() const noexcept {
-				return std::accumulate(grid.begin(), grid.end(), std::size_t(0), [](std::size_t n, cell_t cell) { return n + cell.members.size(); });
+				return std::accumulate(grid.begin(), grid.end(), std::size_t(0), [](std::size_t n, cell space) { return n + space.members.size(); });
 			}
 			
 			// Returns the appropriate cell space for the given position
@@ -86,9 +86,9 @@ namespace sonic {
 				util::rectangle prox_box(static_cast<int>(pos.x - proximity_radius / 2.0), 
 					                     static_cast<int>(pos.y - proximity_radius / 2.0),
 					                     proximity_radius, proximity_radius);
-				for (auto cell : grid) {
-					if (prox_box.intersects_with(cell.boundary)) {
-						for (auto member : cell.members) {
+				for (auto cell_space : grid) {
+					if (prox_box.intersects_with(cell_space.boundary)) {
+						for (auto member : cell_space.members) {
 							if (filter(member)) {
 								function(member);
 							}
@@ -100,7 +100,7 @@ namespace sonic {
 		private:
 
 			// The cell space grid
-			std::vector<cell_t> grid;
+			std::vector<cell> grid;
 
 			// The dimensions of the world in 2D
 			int world_width, world_height;
