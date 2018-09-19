@@ -1,5 +1,5 @@
 #include <assert.h>
-#include "sonic_resource_texture.h"
+#include "../resource/sonic_resource_texture.h"
 #include "sonic_display_renderer.h"
 
 sonic::display::renderer::renderer() : m_renderer(nullptr), w_id(0)

@@ -143,44 +143,43 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="display\sonic_display_renderer.h" />
+    <ClInclude Include="display\sonic_display_window.h" />
+    <ClInclude Include="input\sonic_input.h" />
+    <ClInclude Include="math\sonic_math_functions.h" />
+    <ClInclude Include="math\sonic_math_matrix.h" />
+    <ClInclude Include="math\sonic_math_vec2D.h" />
+    <ClInclude Include="resource\sonic_resource.h" />
+    <ClInclude Include="resource\sonic_resource_font.h" />
+    <ClInclude Include="resource\sonic_resource_sound.h" />
+    <ClInclude Include="resource\sonic_resource_spritesheet.h" />
+    <ClInclude Include="resource\sonic_resource_texture.h" />
     <ClInclude Include="sonic.h" />
-    <ClInclude Include="sonic_display_window.h" />
-    <ClInclude Include="sonic_display_renderer.h" />
-    <ClInclude Include="sonic_resource.h" />
-    <ClInclude Include="sonic_resource_font.h" />
-    <ClInclude Include="sonic_resource_sound.h" />
-    <ClInclude Include="sonic_resource_spritesheet.h" />
-    <ClInclude Include="sonic_resource_texture.h" />
-    <ClInclude Include="sonic_util_clock.h" />
-    <ClInclude Include="sonic_util_frame_counter.h" />
-    <ClInclude Include="sonic_util_frame_timer.h" />
-    <ClInclude Include="sonic_input.h" />
-    <ClInclude Include="sonic_math_functions.h" />
-    <ClInclude Include="sonic_math_vec2D.h" />
-    <ClInclude Include="sonic_world_csp.h" />
-    <ClInclude Include="sonic_world_wall.h" />
-    <ClInclude Include="sonic_util_instance_counter.h" />
-    <ClInclude Include="sonic_util_rectangle.h" />
+    <ClInclude Include="util\sonic_util_clock.h" />
+    <ClInclude Include="util\sonic_util_frame_counter.h" />
+    <ClInclude Include="util\sonic_util_frame_timer.h" />
+    <ClInclude Include="util\sonic_util_instance_counter.h" />
+    <ClInclude Include="util\sonic_util_rectangle.h" />
+    <ClInclude Include="world\sonic_world_csp.h" />
+    <ClInclude Include="world\sonic_world_obstacle.h" />
+    <ClInclude Include="world\sonic_world_wall.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="display\sonic_display_renderer.cpp" />
+    <ClCompile Include="display\sonic_display_window.cpp" />
+    <ClCompile Include="input\sonic_input.cpp" />
+    <ClCompile Include="resource\sonic_resource.cpp" />
+    <ClCompile Include="resource\sonic_resource_font.cpp" />
+    <ClCompile Include="resource\sonic_resource_sound.cpp" />
+    <ClCompile Include="resource\sonic_resource_spritesheet.cpp" />
+    <ClCompile Include="resource\sonic_resource_texture.cpp" />
     <ClCompile Include="sonic.cpp" />
-    <ClCompile Include="sonic_display_renderer.cpp" />
-    <ClCompile Include="sonic_display_window.cpp" />
-    <ClCompile Include="sonic_input.cpp" />
-    <ClCompile Include="sonic_resource.cpp" />
-    <ClCompile Include="sonic_resource_font.cpp" />
-    <ClCompile Include="sonic_resource_sound.cpp" />
-    <ClCompile Include="sonic_resource_spritesheet.cpp" />
-    <ClCompile Include="sonic_resource_texture.cpp" />
-    <ClCompile Include="sonic_world_obstacle.cpp" />
-    <ClCompile Include="sonic_world_wall.cpp" />
-    <ClCompile Include="sonic_util_clock.cpp" />
-    <ClCompile Include="sonic_util_frame_counter.cpp" />
-    <ClCompile Include="sonic_util_frame_timer.cpp" />
-    <ClCompile Include="sonic_util_rectangle.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sonic_world_obstacle.h" />
+    <ClCompile Include="util\sonic_util_clock.cpp" />
+    <ClCompile Include="util\sonic_util_frame_counter.cpp" />
+    <ClCompile Include="util\sonic_util_frame_timer.cpp" />
+    <ClCompile Include="util\sonic_util_rectangle.cpp" />
+    <ClCompile Include="world\sonic_world_obstacle.cpp" />
+    <ClCompile Include="world\sonic_world_wall.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

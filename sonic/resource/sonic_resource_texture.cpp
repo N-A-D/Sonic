@@ -1,7 +1,7 @@
 #include <assert.h>
 #include <stdexcept>
 #include "sonic_resource_font.h"
-#include "sonic_display_renderer.h"
+#include "../display/sonic_display_renderer.h"
 #include "sonic_resource_texture.h"
 
 sonic::resource::texture::texture() : m_texture(nullptr), w(0), h(0), texture_format(0)

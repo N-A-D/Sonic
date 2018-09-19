@@ -1,5 +1,5 @@
-#include "sonic_math_vec2D.h"
-#include "sonic_util_instance_counter.h"
+#include "../math/sonic_math_vec2D.h"
+#include "../util/sonic_util_instance_counter.h"
 
 namespace sonic {
 	namespace world {

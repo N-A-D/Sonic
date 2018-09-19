@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include "sonic_resource.h"
 #include "sonic_resource_texture.h"
-#include "sonic_display_renderer.h"
+#include "../display/sonic_display_renderer.h"
 
 namespace sonic {
 	namespace resource {

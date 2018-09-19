@@ -56,55 +56,61 @@
     <ClInclude Include="sonic.h">
       <Filter>Header Files\Init</Filter>
     </ClInclude>
-    <ClInclude Include="sonic_math_functions.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="sonic_util_rectangle.h">
-      <Filter>Header Files\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="sonic_util_instance_counter.h">
-      <Filter>Header Files\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="sonic_util_frame_timer.h">
-      <Filter>Header Files\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="sonic_resource.h">
-      <Filter>Header Files\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="sonic_util_clock.h">
-      <Filter>Header Files\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="sonic_resource_texture.h">
-      <Filter>Header Files\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="sonic_resource_spritesheet.h">
-      <Filter>Header Files\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="sonic_display_renderer.h">
+    <ClInclude Include="display\sonic_display_window.h">
       <Filter>Header Files\Display</Filter>
     </ClInclude>
-    <ClInclude Include="sonic_resource_font.h">
-      <Filter>Header Files\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="sonic_resource_sound.h">
-      <Filter>Header Files\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="sonic_math_vec2D.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="sonic_display_window.h">
+    <ClInclude Include="display\sonic_display_renderer.h">
       <Filter>Header Files\Display</Filter>
     </ClInclude>
-    <ClInclude Include="sonic_input.h">
+    <ClInclude Include="input\sonic_input.h">
       <Filter>Header Files\Input</Filter>
     </ClInclude>
-    <ClInclude Include="sonic_util_frame_counter.h">
+    <ClInclude Include="math\sonic_math_functions.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\sonic_math_matrix.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\sonic_math_vec2D.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="resource\sonic_resource.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="resource\sonic_resource_font.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="resource\sonic_resource_sound.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="resource\sonic_resource_spritesheet.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="resource\sonic_resource_texture.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="util\sonic_util_clock.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
-    <ClInclude Include="sonic_world_csp.h">
+    <ClInclude Include="util\sonic_util_frame_counter.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\sonic_util_frame_timer.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\sonic_util_instance_counter.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\sonic_util_rectangle.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="world\sonic_world_csp.h">
       <Filter>Header Files\World</Filter>
     </ClInclude>
-    <ClInclude Include="sonic_world_wall.h">
+    <ClInclude Include="world\sonic_world_obstacle.h">
+      <Filter>Header Files\World</Filter>
+    </ClInclude>
+    <ClInclude Include="world\sonic_world_wall.h">
       <Filter>Header Files\World</Filter>
     </ClInclude>
   </ItemGroup>
@@ -112,52 +118,47 @@
     <ClCompile Include="sonic.cpp">
       <Filter>Source Files\Init</Filter>
     </ClCompile>
-    <ClCompile Include="sonic_util_rectangle.cpp">
-      <Filter>Source Files\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="sonic_resource.cpp">
-      <Filter>Source Files\Resource</Filter>
-    </ClCompile>
-    <ClCompile Include="sonic_resource_font.cpp">
-      <Filter>Source Files\Resource</Filter>
-    </ClCompile>
-    <ClCompile Include="sonic_resource_texture.cpp">
-      <Filter>Source Files\Resource</Filter>
-    </ClCompile>
-    <ClCompile Include="sonic_resource_sound.cpp">
-      <Filter>Source Files\Resource</Filter>
-    </ClCompile>
-    <ClCompile Include="sonic_display_renderer.cpp">
+    <ClCompile Include="display\sonic_display_renderer.cpp">
       <Filter>Source Files\Display</Filter>
     </ClCompile>
-    <ClCompile Include="sonic_resource_spritesheet.cpp">
-      <Filter>Source Files\Resource</Filter>
-    </ClCompile>
-    <ClCompile Include="sonic_util_clock.cpp">
-      <Filter>Source Files\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="sonic_util_frame_timer.cpp">
-      <Filter>Source Files\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="sonic_display_window.cpp">
+    <ClCompile Include="display\sonic_display_window.cpp">
       <Filter>Source Files\Display</Filter>
     </ClCompile>
-    <ClCompile Include="sonic_input.cpp">
+    <ClCompile Include="input\sonic_input.cpp">
       <Filter>Source Files\Input</Filter>
     </ClCompile>
-    <ClCompile Include="sonic_util_frame_counter.cpp">
+    <ClCompile Include="resource\sonic_resource.cpp">
+      <Filter>Source Files\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\sonic_resource_font.cpp">
+      <Filter>Source Files\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\sonic_resource_sound.cpp">
+      <Filter>Source Files\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\sonic_resource_spritesheet.cpp">
+      <Filter>Source Files\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\sonic_resource_texture.cpp">
+      <Filter>Source Files\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="util\sonic_util_clock.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
-    <ClCompile Include="sonic_world_wall.cpp">
+    <ClCompile Include="util\sonic_util_frame_counter.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\sonic_util_frame_timer.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\sonic_util_rectangle.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="world\sonic_world_obstacle.cpp">
       <Filter>Source Files\World</Filter>
     </ClCompile>
-    <ClCompile Include="sonic_world_obstacle.cpp">
+    <ClCompile Include="world\sonic_world_wall.cpp">
       <Filter>Source Files\World</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sonic_world_obstacle.h">
-      <Filter>Header Files\World</Filter>
-    </None>
   </ItemGroup>
 </Project>

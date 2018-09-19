@@ -2,7 +2,7 @@
 
 #include <stdexcept>
 #include "sonic_math_functions.h"
-
+#include "sonic_math_matrix.h"
 namespace sonic {
 	namespace math {
 
