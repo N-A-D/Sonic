@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
 
-#include "..\sonic\sonic_math_vec2D.h"
-#include "..\sonic\sonic_math_functions.h"
+#include "..\sonic\math\sonic_math_vec2D.h"
+#include "..\sonic\math\sonic_math_functions.h"
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
-#include "..\sonic\sonic_util_rectangle.h"
+#include "..\sonic\util\sonic_util_rectangle.h"
 #include <SDL.h>
 #include <vector>
 
