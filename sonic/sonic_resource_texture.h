@@ -75,7 +75,7 @@ namespace sonic {
 		};
 		
 		// A texture loaded from an image file
-		class image final : public texture, public sonic::resource::resource_type<image> {
+		class image final : public texture, public sonic::resource::resource_t<image> {
 		public:
 			image() {}
 			image(sonic::display::renderer& renderer, const std::string& path);
@@ -84,7 +84,7 @@ namespace sonic {
 		};
 
 		// Solid rendered text
-		class text final : public texture, public sonic::resource::resource_type<text> {
+		class text final : public texture, public sonic::resource::resource_t<text> {
 		public:
 			text() {}
 			text(sonic::display::renderer& renderer, // The text renderer
@@ -99,7 +99,7 @@ namespace sonic {
 		};
 
 		// Shaded rendered text
-		class shaded_text final : public texture, public sonic::resource::resource_type<shaded_text> {
+		class shaded_text final : public texture, public sonic::resource::resource_t<shaded_text> {
 		public:
 			shaded_text() {}
 			shaded_text(sonic::display::renderer& renderer, // The text renderer
@@ -116,7 +116,7 @@ namespace sonic {
 		};
 
 		// Blended rendered text
-		class blended_text final : public texture, public sonic::resource::resource_type<shaded_text> {
+		class blended_text final : public texture, public sonic::resource::resource_t<shaded_text> {
 		public:
 			blended_text() {}
 			blended_text(sonic::display::renderer& renderer, // The text renderer

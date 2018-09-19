@@ -10,7 +10,7 @@ namespace sonic {
 
 		// Font class
 		// Used for writing text onto a screen
-		class font final : public sonic::resource::resource_type<font> {
+		class font final : public sonic::resource::resource_t<font> {
 		public:
 
 			// Constructors

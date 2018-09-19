@@ -10,7 +10,7 @@ namespace sonic {
 
 		// The audio_effect class
 		// Used for sound effects
-		class audio_effect final : public sonic::resource::resource_type<audio_effect> {
+		class audio_effect final : public sonic::resource::resource_t<audio_effect> {
 		public:
 			// Constructors
 			audio_effect();
@@ -51,7 +51,7 @@ namespace sonic {
 		};
 
 		// The music class
-		class music final : public sonic::resource::resource_type<music> {
+		class music final : public sonic::resource::resource_t<music> {
 		public:
 			music();
 			music(const std::string& path);
