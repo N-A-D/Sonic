@@ -144,11 +144,11 @@ namespace math
 		}
 		
 		TEST_METHOD(deg_to_rad) {
-			Assert::IsTrue(sonic::math::approx_equal(1.57079632679489661923, sonic::math::deg_to_rad(90.0)));
+			Assert::IsTrue(sonic::math::approx_equal(1.57079632679489661923, sonic::math::radians(90.0)));
 		}
 
 		TEST_METHOD(rad_to_deg) {
-			Assert::IsTrue(sonic::math::approx_equal(90.0, sonic::math::rad_to_deg(1.57079632679489661923)));
+			Assert::IsTrue(sonic::math::approx_equal(90.0, sonic::math::degrees(1.57079632679489661923)));
 		}
 
 		TEST_METHOD(rand_int) {
