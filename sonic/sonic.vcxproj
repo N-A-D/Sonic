@@ -71,22 +71,22 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\rapidxml-1.13;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)3rdParty\SDL2\lib\W64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)3rdParty\SDL2\lib\Win64;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)$(Configuration)\W64\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\rapidxml-1.13;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)3rdParty\SDL2\lib\W32;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)3rdParty\SDL2\lib\Win32;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)$(Configuration)\W32\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\rapidxml-1.13;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)3rdParty\SDL2\lib\W32;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)3rdParty\SDL2\lib\Win32;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)$(Configuration)\W32\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\rapidxml-1.13;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)3rdParty\SDL2\lib\W64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)3rdParty\SDL2\lib\Win64;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)$(Configuration)\W64\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
