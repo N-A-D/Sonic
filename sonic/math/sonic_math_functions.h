@@ -26,14 +26,14 @@ namespace sonic {
 		// Converts from degrees to radians
 		template <class T>
 		typename std::enable_if<std::is_floating_point<T>::value, T>::type
-			deg_to_rad(T deg) noexcept {
+			radians(T deg) noexcept {
 			return static_cast<T>(M_PI) / static_cast<T>(180) * deg;
 		}
 
 		// Converts from radians to degrees
 		template <class T>
 		typename std::enable_if<std::is_floating_point<T>::value, T>::type
-			rad_to_deg(T rad) noexcept {
+			degrees(T rad) noexcept {
 			return rad * static_cast<T>(180) / static_cast<T>(M_PI);
 		}
 
