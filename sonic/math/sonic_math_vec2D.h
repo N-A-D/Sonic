@@ -30,7 +30,7 @@ namespace sonic {
 			T angle_to(const vec2<T>& other) const {
 				auto v = this->norm();
 				auto w = other.norm();
-				return sonic::math::rad_to_deg(acos(v.dot(w)));
+				return sonic::math::degrees(acos(v.dot(w)));
 			}
 
 			// Returns the dot product between the caller and other
@@ -38,7 +38,7 @@ namespace sonic {
 
 			// Returns a copy of the caller rotated by angle (degrees)
 			vec2<T> rotate(T angle) const noexcept {
-				auto rads = deg_to_rad(angle);
+				auto rads = sonic::math::radians(angle);
 				auto t_x = x * cos(rads) - y * sin(rads);
 				auto t_y = x * sin(rads) + y * cos(rads);
 				return vec2<T>(t_x, t_y);
