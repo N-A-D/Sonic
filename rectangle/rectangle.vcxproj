@@ -78,7 +78,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(SolutionDir)3rdParty\SDL2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)3rdParty\SDL2\lib\W32;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)3rdParty\SDL2\lib\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
