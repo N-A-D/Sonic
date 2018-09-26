@@ -42,7 +42,7 @@ namespace sonic {
 				}
 			}
 
-			// Checks if this manager manges the given type of resource
+			// Checks if this manager manages the given type of resource
 			template <class Resource>
 			bool manages() const noexcept {
 				return database.find(Resource::resource_id()) != database.end();
