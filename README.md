@@ -1,4 +1,4 @@
-# sonic
+# Sonic
 2D framework built using SDL2
 
 ## Dependencies
