@@ -260,10 +260,10 @@ namespace sonic {
 		// Checks if btn is currently being pressed
 		bool is_mouse_pressed(mouse_button btn) const noexcept;
 
-		// Checks if btn was pressed this frame
+		// Checks if btn was pressed last frame
 		bool is_mouse_down(mouse_button btn) const noexcept;
 
-		// Checks if btn was released this frame
+		// Checks if btn was released last frame
 		bool is_mouse_up(mouse_button btn) const noexcept;
 
 		// Returns the amount of vertical mouse wheel motion in the last frame
@@ -278,10 +278,10 @@ namespace sonic {
 		// Checks if key is currently being pressed
 		bool is_key_pressed(keyboard key) const noexcept;
 
-		// Checks if key was pressed this frame
+		// Checks if key was pressed last frame
 		bool is_key_down(keyboard key) const noexcept;
 
-		// Checks if key was released this frame
+		// Checks if key was released last frame
 		bool is_key_up(keyboard key) const noexcept;
 
 	private:
