@@ -1,5 +1,5 @@
 # Sonic
-2D framework built using SDL2
+SDL2 wrapper
 
 ## Dependencies
 This project depends on SDL2 and RapidXML 1.13.
